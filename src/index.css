@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px; /* Account for fixed header plus extra padding */
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-6xl mx-auto px-6 py-8;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700 overflow-hidden;
+  }
+  
+  .skill-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200;
+  }
+  
+  .contact-icon {
+    @apply w-5 h-5 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200;
+  }
+  
+  .skill-logo {
+    @apply w-8 h-8 object-contain transition-all duration-300;
+  }
+  
+  .skill-logo-container {
+    @apply relative w-12 h-12 flex items-center justify-center bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 dark:border-gray-600;
+  }
+  
+  .skills-scroll-container {
+    @apply relative overflow-hidden;
+  }
+  
+  .skills-scroll-container::before,
+  .skills-scroll-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+  }
+  
+  .skills-scroll-container::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
+  }
+  
+  .skills-scroll-container::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
+  }
+  
+  .dark .skills-scroll-container::before {
+    background: linear-gradient(to right, rgba(31,41,55,1), rgba(31,41,55,0));
+  }
+  
+  .dark .skills-scroll-container::after {
+    background: linear-gradient(to left, rgba(31,41,55,1), rgba(31,41,55,0));
+  }
+
+  .nav-button {
+    @apply relative px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-full transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-700;
+  }
+
+  .nav-button.active {
+    @apply text-primary-600 dark:text-primary-400;
+  }
+
+  .nav-underline {
+    @apply absolute bottom-0.5 left-1/2 transform -translate-x-1/2 w-10 sm:w-12 h-1 bg-primary-500 rounded-full shadow-sm;
+  }
+
+  /* Enhanced teal color scheme for better visibility */
+  .primary-gradient {
+    @apply bg-gradient-to-br from-primary-400 to-primary-500 dark:from-primary-600 dark:to-primary-700;
+  }
+
+  .primary-text {
+    @apply text-primary-600 dark:text-primary-400;
+  }
+
+  .primary-bg-light {
+    @apply bg-primary-50 dark:bg-primary-900/20;
+  }
+
+  /* Mobile-specific overflow protection */
+  .mobile-safe {
+    @apply overflow-hidden break-words;
+  }
+
+  .mobile-grid-safe {
+    @apply min-w-0 overflow-hidden;
+  }
+
+  .custom-scrollbar {
+    @apply overflow-y-auto;
+    scrollbar-width: thin;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-break {
+    page-break-before: always;
+  }
+  
+  body {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
