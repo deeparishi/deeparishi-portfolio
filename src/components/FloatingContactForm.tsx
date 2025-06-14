@@ -20,9 +20,10 @@ const FloatingContactForm: React.FC<{}> = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
+    "idle" | "success" | "error" | "redirecting"
   >("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [showErrorPopup, setShowErrorPopup] = useState(false);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -58,7 +59,6 @@ const FloatingContactForm: React.FC<{}> = () => {
           ".\n\n",
       };
 
-      // Template parameters for auto-response to recruiter
       const templateParamsToRecruiter = {
         email: formData.email,
         name: formData.name,
@@ -87,13 +87,29 @@ const FloatingContactForm: React.FC<{}> = () => {
       }, 2000);
     } catch (error) {
       console.error("EmailJS Error:", error);
-      setSubmitStatus("error");
-      setErrorMessage(
-        error instanceof Error
-          ? error.message
-          : "Failed to send message. Please try again."
-      );
+      setSubmitStatus("redirecting");
+      setShowErrorPopup(true);
       setIsSubmitting(false);
+      
+      setTimeout(() => {
+        setShowErrorPopup(false);
+        
+        // Create mailto link with form data
+        const subject = encodeURIComponent(formData.title || "Contact from Portfolio");
+        const body = encodeURIComponent(
+          `Hi Deeparishi,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+        );
+        const mailtoLink = `mailto:deeparishia@gmail.com?subject=${subject}&body=${body}`;
+        
+        window.location.href = mailtoLink;
+        
+        // Reset form and close
+        setTimeout(() => {
+          setFormData({ name: "", email: "", title: "", message: "" });
+          setSubmitStatus("idle");
+          setIsExpanded(false);
+        }, 1000);
+      }, 5000);
     }
   };
 
@@ -186,7 +202,7 @@ const FloatingContactForm: React.FC<{}> = () => {
                   className={`w-full py-2 px-4 rounded-lg font-medium text-sm transition-colors flex items-center justify-center space-x-2 ${
                     submitStatus === "success"
                       ? "bg-green-500 hover:bg-green-600"
-                      : submitStatus === "error"
+                      : submitStatus === "error" || submitStatus === "redirecting"
                       ? "bg-red-500 hover:bg-red-600"
                       : "bg-primary-500 hover:bg-primary-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
                   } text-white`}
@@ -202,6 +218,11 @@ const FloatingContactForm: React.FC<{}> = () => {
                     <>
                       <FiAlertCircle className="w-4 h-4" />
                       <span>Try Again</span>
+                    </>
+                  ) : submitStatus === "redirecting" ? (
+                    <>
+                      <FiMail className="w-4 h-4" />
+                      <span>Redirecting...</span>
                     </>
                   ) : (
                     <>
@@ -246,6 +267,35 @@ const FloatingContactForm: React.FC<{}> = () => {
               <div className="absolute left-full top-1/2 -translate-y-1/2 w-0 h-0 border-t-4 border-b-4 border-l-4 border-transparent border-l-gray-900 dark:border-l-gray-700"></div>
             </div>
           </motion.button>
+        )}
+      </AnimatePresence>
+      
+      {/* Error Popup */}
+      <AnimatePresence>
+        {showErrorPopup && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, y: -20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: -20 }}
+            className="fixed top-4 left-1/2 transform -translate-x-1/2 z-[70] bg-white dark:bg-gray-800 border border-red-200 dark:border-red-800 rounded-lg shadow-2xl p-4 max-w-sm mx-4"
+          >
+            <div className="flex items-start space-x-3">
+              <div className="flex-shrink-0">
+                <FiAlertCircle className="w-5 h-5 text-red-500" />
+              </div>
+              <div className="flex-1">
+                <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
+                  Email Service Unavailable
+                </h4>
+                <p className="text-xs text-gray-600 dark:text-gray-300 mb-3">
+                  Sorry, something went wrong while sending the email. You're being redirected to your email app to send the message.
+                </p>
+                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+                  <div className="bg-red-500 h-1.5 rounded-full animate-pulse" style={{width: '100%'}}></div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </div>

@@ -5,7 +5,6 @@ import './index.css'
 import { ThemeProvider } from './contexts/ThemeContext.tsx'
 import emailjs from '@emailjs/browser'
 
-// TODO: Replace 'YOUR_PUBLIC_KEY_HERE' with your actual EmailJS public key
 emailjs.init('tUjNxVa35ascMJOOU');
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
