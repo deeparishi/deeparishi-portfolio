@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Experience } from '../data/portfolioData';
 import { FiMapPin, FiCalendar } from 'react-icons/fi';
-import { FaBuilding} from 'react-icons/fa'
+import { FaBuilding} from 'react-icons/fa';
 
 interface ExperienceSectionProps {
   experiences: Experience[];

@@ -8,6 +8,7 @@ import CertificationsSection from './components/CertificationsSection';
 import EducationSection from './components/EducationSection';
 import ThemeToggle from './components/ThemeToggle';
 import PrintButton from './components/PrintButton';
+import AnimatedBackground from './components/AnimatedBackground';
 import { portfolioData } from './data/portfolioData';
 import FloatingResumePreview from './components/FloatingResumePreview';
 import FloatingContactForm from './components/FloatingContactForm';
@@ -38,7 +39,10 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300 relative">
+      {/* Animated Background */}
+      <AnimatedBackground />
+
       {/* Fixed Controls */}
       <div className="fixed top-4 right-4 z-50 flex gap-2 no-print">
         <ThemeToggle /> 
@@ -56,7 +60,7 @@ const App: React.FC = () => {
       <Header contact={portfolioData.contact} />
 
       {/* Main Content */}
-      <div ref={printRef} className="pt-14 sm:pt-10">
+      <div ref={printRef} className="pt-14 sm:pt-10 relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
