@@ -62,6 +62,7 @@ export interface PortfolioData {
   skills: Skill[];
   certifications: Certification[];
   education: Education[];
+  resumeUrl: string;
 }
 
 export const portfolioData: PortfolioData = {
@@ -227,5 +228,6 @@ export const portfolioData: PortfolioData = {
       gpa: "8.17/10",
       logo: "https://www.veltech.edu.in/images/logo.png"
     }
-  ]
+  ],
+  resumeUrl: "https://drive.google.com/file/d/1V7dwByYVzZ4pm7hg6gh-G0AwKYJD72mg/view?usp=drivesdk",
 };

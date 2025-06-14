@@ -1,43 +1,44 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiDownload } from 'react-icons/fi';
-import { useReactToPrint } from 'react-to-print';
 
 interface PrintButtonProps {
-  printRef: React.RefObject<HTMLDivElement>;
+  resumeUrl: string;
+  fileName?: string;
 }
 
-const PrintButton: React.FC<PrintButtonProps> = ({ printRef }) => {
-  const handlePrint = useReactToPrint({
-    content: () => printRef.current,
-    documentTitle: 'Deeparishi_A_Resume',
-    pageStyle: `
-      @page {
-        size: A4;
-        margin: 0.5in;
+const PrintButton: React.FC<PrintButtonProps> = ({ 
+  resumeUrl, 
+  fileName = "Deeparishi_Resume.pdf" 
+}) => {
+  const handleDownload = () => {
+    // Convert Google Drive view link to download link (same logic as FloatingResumePreview)
+    let downloadUrl = resumeUrl;
+    
+    if (resumeUrl.includes('drive.google.com')) {
+      // Extract file ID from Google Drive URL
+      const fileIdMatch = resumeUrl.match(/\/d\/([a-zA-Z0-9-_]+)/);
+      if (fileIdMatch) {
+        const fileId = fileIdMatch[1];
+        downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
       }
-      @media print {
-        body {
-          -webkit-print-color-adjust: exact;
-          color-adjust: exact;
-        }
-        .no-print {
-          display: none !important;
-        }
-        .print-break {
-          page-break-before: always;
-        }
-      }
-    `,
-  });
+    }
+    
+    const link = document.createElement('a');
+    link.href = downloadUrl;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <motion.button
-      onClick={handlePrint}
+      onClick={handleDownload}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className="flex items-center justify-center w-12 h-12 bg-primary-500 hover:bg-primary-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-      title="Download as PDF"
+      title="Download Resume"
     >
       <FiDownload className="w-5 h-5" />
     </motion.button>

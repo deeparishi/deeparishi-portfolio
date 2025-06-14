@@ -9,6 +9,8 @@ import EducationSection from './components/EducationSection';
 import ThemeToggle from './components/ThemeToggle';
 import PrintButton from './components/PrintButton';
 import { portfolioData } from './data/portfolioData';
+import FloatingResumePreview from './components/FloatingResumePreview';
+import FloatingContactForm from './components/FloatingContactForm';
 
 const App: React.FC = () => {
   const printRef = useRef<HTMLDivElement>(null);
@@ -39,9 +41,16 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       {/* Fixed Controls */}
       <div className="fixed top-4 right-4 z-50 flex gap-2 no-print">
-        <ThemeToggle />
-        <PrintButton printRef={printRef} />
+        <ThemeToggle /> 
+        <PrintButton resumeUrl={portfolioData.resumeUrl} />
       </div>
+
+      {/* Floating Components */}
+      <FloatingContactForm contactEmail={portfolioData.contact.email} />
+      <FloatingResumePreview
+        resumeUrl = {portfolioData.resumeUrl}  
+        fileName="Deeparishi_Resume.pdf" 
+      />
 
       {/* Sticky Header */}
       <Header contact={portfolioData.contact} />
