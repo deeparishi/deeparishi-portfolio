@@ -1,56 +1,111 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FiMail, FiX, FiSend, FiMessageCircle } from 'react-icons/fi';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  FiMail,
+  FiX,
+  FiSend,
+  FiMessageCircle,
+  FiCheck,
+  FiAlertCircle,
+} from "react-icons/fi";
+import emailjs from "@emailjs/browser";
 
-interface FloatingContactFormProps {
-  contactEmail: string;
-}
-
-const FloatingContactForm: React.FC<FloatingContactFormProps> = ({ contactEmail }) => {
+const FloatingContactForm: React.FC<{}> = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    title: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus("idle");
+    setErrorMessage("");
 
-    // Create mailto link with form data
-    const subject = encodeURIComponent(formData.subject || 'Contact from Portfolio');
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\n` +
-      `Email: ${formData.email}\n\n` +
-      `Message:\n${formData.message}`
-    );
+    try {
     
-    const mailtoLink = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
-    window.open(mailtoLink);
+      const SERVICE_ID = "service_j4iwtuk";
+      const TEMPLATE_TO_OWNER = "template_u8qquee";
+      const TEMPLATE_TO_RECRUITER = "template_5rz3tfh";
 
-    // Reset form after a short delay
-    setTimeout(() => {
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      const templateParamsToOwner = {
+        to_email: "deeparishia@gmail.com",
+        title: formData.title || "New Contact from Portfolio",
+        name: formData.name,
+        time: new Date().toLocaleString(),
+        message:
+          formData.message +
+          "  \n And Recruiter's mail id is " +
+          formData.email +
+          ".\n\n",
+      };
+
+      // Template parameters for auto-response to recruiter
+      const templateParamsToRecruiter = {
+        email: formData.email,
+        name: formData.name,
+        title: formData.title || "New Contact from Portfolio",
+      };
+
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_TO_OWNER,
+        templateParamsToOwner
+      );
+
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_TO_RECRUITER,
+        templateParamsToRecruiter
+      );
+
+      setSubmitStatus("success");
+
+      setTimeout(() => {
+        setFormData({ name: "", email: "", title: "", message: "" });
+        setIsSubmitting(false);
+        setSubmitStatus("idle");
+        setIsExpanded(false);
+      }, 2000);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setSubmitStatus("error");
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Failed to send message. Please try again."
+      );
       setIsSubmitting(false);
-      setIsExpanded(false);
-    }, 1000);
+    }
   };
 
-  const isFormValid = formData.name.trim() && formData.email.trim() && formData.message.trim();
+  const isFormValid =
+    formData.name.trim() && formData.email.trim() && formData.message.trim();
 
   return (
-    <div className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 no-print ${isExpanded ? 'z-[60]' : 'z-50'}`}>
+    <div
+      className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 no-print ${
+        isExpanded ? "z-[60]" : "z-50"
+      }`}
+    >
       <AnimatePresence>
         {isExpanded ? (
           <motion.div
@@ -104,10 +159,11 @@ const FloatingContactForm: React.FC<FloatingContactFormProps> = ({ contactEmail 
                 <div>
                   <input
                     type="text"
-                    name="subject"
-                    placeholder="Subject"
-                    value={formData.subject}
+                    name="title"
+                    placeholder="Subject *"
+                    value={formData.title}
                     onChange={handleInputChange}
+                    required
                     className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                   />
                 </div>
@@ -127,10 +183,26 @@ const FloatingContactForm: React.FC<FloatingContactFormProps> = ({ contactEmail 
                 <button
                   type="submit"
                   disabled={!isFormValid || isSubmitting}
-                  className="w-full bg-primary-500 hover:bg-primary-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-2 px-4 rounded-lg font-medium text-sm transition-colors flex items-center justify-center space-x-2"
+                  className={`w-full py-2 px-4 rounded-lg font-medium text-sm transition-colors flex items-center justify-center space-x-2 ${
+                    submitStatus === "success"
+                      ? "bg-green-500 hover:bg-green-600"
+                      : submitStatus === "error"
+                      ? "bg-red-500 hover:bg-red-600"
+                      : "bg-primary-500 hover:bg-primary-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                  } text-white`}
                 >
                   {isSubmitting ? (
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  ) : submitStatus === "success" ? (
+                    <>
+                      <FiCheck className="w-4 h-4" />
+                      <span>Message Sent!</span>
+                    </>
+                  ) : submitStatus === "error" ? (
+                    <>
+                      <FiAlertCircle className="w-4 h-4" />
+                      <span>Try Again</span>
+                    </>
                   ) : (
                     <>
                       <FiSend className="w-4 h-4" />
@@ -138,6 +210,21 @@ const FloatingContactForm: React.FC<FloatingContactFormProps> = ({ contactEmail 
                     </>
                   )}
                 </button>
+
+                {/* Error Message */}
+                {submitStatus === "error" && errorMessage && (
+                  <div className="text-red-500 text-xs mt-2 p-2 bg-red-50 dark:bg-red-900/20 rounded-md">
+                    {errorMessage}
+                  </div>
+                )}
+
+                {/* Success Message */}
+                {submitStatus === "success" && (
+                  <div className="text-green-600 dark:text-green-400 text-xs mt-2 p-2 bg-green-50 dark:bg-green-900/20 rounded-md">
+                    Thank you! Your message has been sent successfully. You'll
+                    receive a confirmation email shortly.
+                  </div>
+                )}
               </form>
             </div>
           </motion.div>
@@ -152,7 +239,7 @@ const FloatingContactForm: React.FC<FloatingContactFormProps> = ({ contactEmail 
             className="bg-primary-500 hover:bg-primary-600 text-white w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 group relative"
           >
             <FiMessageCircle className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" />
-            
+
             {/* Tooltip */}
             <div className="absolute right-full top-1/2 -translate-y-1/2 mr-2 px-2 py-1 bg-gray-900 dark:bg-gray-700 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-[60]">
               Contact Me

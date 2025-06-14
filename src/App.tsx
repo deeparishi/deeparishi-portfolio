@@ -50,7 +50,7 @@ const App: React.FC = () => {
       </div>
 
       {/* Floating Components */}
-      <FloatingContactForm contactEmail={portfolioData.contact.email} />
+      <FloatingContactForm  />
       <FloatingResumePreview
         resumeUrl = {portfolioData.resumeUrl}  
         fileName="Deeparishi_Resume.pdf" 
