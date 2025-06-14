@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Experience } from '../data/portfolioData';
-import { FiMapPin, FiCalendar, FiFolder, FiActivity, FiBarChart } from 'react-icons/fi';
-import { FaBuilding, FaMoneyBillWave, FaCommentDots } from 'react-icons/fa'
+import { FiMapPin, FiCalendar } from 'react-icons/fi';
+import { FaBuilding} from 'react-icons/fa'
 
 interface ExperienceSectionProps {
   experiences: Experience[];
@@ -40,14 +40,27 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experiences }) =>
                   }`}
               >
                 <div className="flex items-start gap-3">
-                  <div className={`flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center ${selectedCompany === exp.id
-                      ? 'bg-white/20'
-                      : 'bg-primary-100 dark:bg-primary-900'
-                    }`}>
-                    <FaBuilding className={`w-5 h-5 ${selectedCompany === exp.id
-                        ? 'text-white'
-                        : 'text-primary-600 dark:text-primary-400'
-                      }`} />
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center p-2 bg-transparent">
+                    {exp.logo ? (
+                      <img
+                        src={exp.logo}
+                        alt={exp.company}
+                        className="w-12 h-12 object-contain rounded-sm"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const parent = target.parentElement;
+                          if (parent) {
+                            parent.innerHTML = `<div class="w-6 h-6 ${selectedCompany === exp.id ? 'text-white' : 'text-primary-600 dark:text-primary-400'}"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>`;
+                          }
+                        }}
+                      />
+                    ) : (
+                      <FaBuilding className={`w-6 h-6 ${selectedCompany === exp.id
+                          ? 'text-white'
+                          : 'text-primary-600 dark:text-primary-400'
+                        }`} />
+                    )}
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className={`font-bold text-sm sm:text-base mb-1 ${selectedCompany === exp.id
@@ -106,8 +119,24 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experiences }) =>
                 {/* Company Header */}
                 <div className="bg-gradient-to-br from-primary-400 to-primary-500 dark:from-primary-600 dark:to-primary-700 rounded-xl p-4 text-white shadow-lg">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center">
-                      <FaBuilding className="w-5 h-5 text-white" />
+                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-transparent flex items-center justify-center p-2">
+                      {experience.logo ? (
+                        <img
+                          src={experience.logo}
+                          alt={experience.company}
+                          className="w-10 h-10 object-contain rounded-sm"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                            const parent = target.parentElement;
+                            if (parent) {
+                              parent.innerHTML = `<div class="text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>`;
+                            }
+                          }}
+                        />
+                      ) : (
+                        <FaBuilding className="w-6 h-6 text-white" />
+                      )}
                     </div>
                     <div>
                       <h3 className="text-lg font-bold">{experience.company}</h3>
@@ -139,17 +168,27 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experiences }) =>
                       {/* Project Header */}
                       <div className="flex items-start gap-3 mb-4">
                         <div className="flex-shrink-0">
-                          <div className="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center">
-                            {project.name.toLowerCase().includes('trove') ? (
-                              <FaCommentDots className="w-5 h-5 text-white" />
-                            ) : project.name.toLowerCase().includes('finserve') || project.name.toLowerCase().includes('financial') ? (
-                              <FaMoneyBillWave className="w-5 h-5 text-white" />
-                            ) : project.name.toLowerCase().includes('ford') ? (
-                              <FiBarChart className="w-5 h-5 text-white" />
-                            ) : project.name.toLowerCase().includes('gloplax') ? (
-                              <FiActivity className="w-5 h-5 text-white" />
+                          <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-transparent">
+                            {project.projectLogo ? (
+                              <img
+                                src={project.projectLogo}
+                                alt={project.name}
+                                className="w-10 h-10 object-contain rounded-lg"
+                                onError={(e) => {
+                                  const target = e.target as HTMLImageElement;
+                                  target.style.display = 'none';
+                                  const parent = target.parentElement;
+                                  if (parent) {
+                                    parent.innerHTML = `<div class="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center"><span class="text-white font-bold text-lg">${project.name.charAt(0).toUpperCase()}</span></div>`;
+                                  }
+                                }}
+                              />
                             ) : (
-                              <FiFolder className="w-5 h-5 text-white" />
+                              <div className="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center">
+                                <span className="text-white font-bold text-lg">
+                                  {project.name.charAt(0).toUpperCase()}
+                                </span>
+                              </div>
                             )}
                           </div>
                         </div>
@@ -250,17 +289,27 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experiences }) =>
                         {/* Project Header */}
                         <div className="flex items-start gap-3 mb-4">
                           <div className="flex-shrink-0">
-                            <div className="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center">
-                              {project.name.toLowerCase().includes('trove') ? (
-                                <FaCommentDots className="w-5 h-5 text-white" />
-                              ) : project.name.toLowerCase().includes('finserve') || project.name.toLowerCase().includes('financial') ? (
-                                <FaMoneyBillWave className="w-5 h-5 text-white" />
-                              ) : project.name.toLowerCase().includes('ford') ? (
-                                <FiBarChart className="w-5 h-5 text-white" />
-                              ) : project.name.toLowerCase().includes('gloplax') ? (
-                                <FiActivity className="w-5 h-5 text-white" />
+                            <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-transparent">
+                              {project.projectLogo ? (
+                                <img
+                                  src={project.projectLogo}
+                                  alt={project.name}
+                                  className="w-10 h-10 object-contain rounded-lg"
+                                  onError={(e) => {
+                                    const target = e.target as HTMLImageElement;
+                                    target.style.display = 'none';
+                                    const parent = target.parentElement;
+                                    if (parent) {
+                                      parent.innerHTML = `<div class="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center"><span class="text-white font-bold text-lg">${project.name.charAt(0).toUpperCase()}</span></div>`;
+                                    }
+                                  }}
+                                />
                               ) : (
-                                <FiFolder className="w-5 h-5 text-white" />
+                                <div className="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center">
+                                  <span className="text-white font-bold text-lg">
+                                    {project.name.charAt(0).toUpperCase()}
+                                  </span>
+                                </div>
                               )}
                             </div>
                           </div>

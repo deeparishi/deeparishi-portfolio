@@ -13,6 +13,7 @@ export interface ContactInfo {
 export interface Project {
   id: string;
   name: string;
+  projectLogo: string;
   startDate: string;
   endDate: string;
   description: string[];
@@ -27,6 +28,7 @@ export interface Experience {
   startDate: string;
   endDate: string;
   projects: Project[];
+  logo: string;
 }
 
 export interface Skill {
@@ -43,6 +45,7 @@ export interface Certification {
   name: string;
   issuer: string;
   year: string;
+  logo: string;
   certLink?: string;
 }
 
@@ -85,12 +88,14 @@ export const portfolioData: PortfolioData = {
       location: "Cuddalore, India",
       startDate: "May 2024",
       endDate: "Present",
+      logo: "/src/assets/companies/hepl-cavinkare.png",
       projects: [
         {
           id: "1a",
           name: "Trove",
           startDate: "Dec - 2024",
           endDate: "Present",
+          projectLogo: "/src/assets/projects/hepl/trove.png",
           description: [
             "Built secure login (SSO, OTP, AES) for DM & group chat; boosted performance by 60% using Redis.",
             "Reduced media size by 50% via FFmpeg microservice with RabbitMQ; ensured cross-platform support.",
@@ -105,6 +110,7 @@ export const portfolioData: PortfolioData = {
           name: "Finserve - Financial Service Platform",
           startDate: "May 2024",
           endDate: "Dec 2024",
+          projectLogo: "",
           description: [
             "Boosted data retrieval by 75% using Spring Cache and Redis; ensured app stability with JMeter and SonarQube.",
             "Integrated real-time financial APIs and third-party loan services, improving loan processing by 30% and enabling application tracking.",
@@ -122,12 +128,14 @@ export const portfolioData: PortfolioData = {
       location: "Chennai, India",
       startDate: "Sept 2023",
       endDate: "Apr 2024",
+      logo: "/src/assets/companies/faw-technologies.png",
       projects: [
         {
           id: "2a",
           name: "Gloplax - GCC Model",
           startDate: "Dec 2023",
           endDate: "Apr 2024",
+          projectLogo: "/src/assets/projects/faw/Gloplax.png",
           description: [
             "Designed RESTful APIs to enable dynamic data delivery between microservices based on user input.",
             "Integrated Spring Boot caching to optimize data calculations, boosting performance by 85%.",
@@ -141,6 +149,7 @@ export const portfolioData: PortfolioData = {
           name: "Ford",
           startDate: "Sept 2023",
           endDate: "Dec 2023",
+          projectLogo: "/src/assets/projects/faw/ford.png",
           description: [
             "Integrated CRON Jobs API with BigQuery for Qlik dashboard visualization, improving calculation accuracy by 25%.",
             "Resolved Angular UI bugs through thorough debugging and validation.",
@@ -208,6 +217,7 @@ export const portfolioData: PortfolioData = {
       name: "Data Structures and Algorithms",
       issuer: "Udemy",
       year: "2025",
+      logo: "https://img.utdstc.com/icon/f61/db0/f61db034c2532bcef67713d4460207372054c4d2b92f271839544a47054b585e:200",
       certLink: "https://www.udemy.com/certificate/UC-9f923f50-15f4-4792-ac82-8b94af3adcfa/"
     },
     {
@@ -215,6 +225,7 @@ export const portfolioData: PortfolioData = {
       name: "Java for Software Developers",
       issuer: "Internshala",
       year: "2022",
+      logo:"https://cdn-1.webcatalog.io/catalog/internshala/internshala-icon-filled-256.webp?v=1714779141663",
       certLink: "https://drive.google.com/file/d/1bbZfAWKyJbx0ZJPJS7nfpcRbKOMMTUnD/view?pli=1"
     }
   ],
@@ -226,7 +237,7 @@ export const portfolioData: PortfolioData = {
       location: "Chennai, India",
       year: "2019-2023",
       gpa: "8.17/10",
-      logo: "https://www.veltech.edu.in/images/logo.png"
+      logo: "https://www.veltech.edu.in/wp-content/uploads/2022/05/logo-white.png"
     }
   ],
   resumeUrl: "https://drive.google.com/file/d/1V7dwByYVzZ4pm7hg6gh-G0AwKYJD72mg/view?usp=drivesdk",
