@@ -9,19 +9,25 @@ import {
   FiAlertCircle,
 } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
+import { Integration } from "../data/portfolioData";
 
 const FloatingContactForm: React.FC<{}> = () => {
+
   const [isExpanded, setIsExpanded] = useState(false);
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     title: "",
     message: "",
   });
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error" | "redirecting"
   >("idle");
+  
   const [errorMessage, setErrorMessage] = useState("");
   const [showErrorPopup, setShowErrorPopup] = useState(false);
 
@@ -42,13 +48,10 @@ const FloatingContactForm: React.FC<{}> = () => {
     setErrorMessage("");
 
     try {
-    
-      const SERVICE_ID = "service_j4iwtuk";
-      const TEMPLATE_TO_OWNER = "template_u8qquee";
-      const TEMPLATE_TO_RECRUITER = "template_5rz3tfh";
+
 
       const templateParamsToOwner = {
-        to_email: "deeparishia@gmail.com",
+        to_email: Integration.OWNER_EMAIL,
         title: formData.title || "New Contact from Portfolio",
         name: formData.name,
         time: new Date().toLocaleString(),
@@ -66,14 +69,14 @@ const FloatingContactForm: React.FC<{}> = () => {
       };
 
       await emailjs.send(
-        SERVICE_ID,
-        TEMPLATE_TO_OWNER,
+        Integration.SERVICE_ID,
+        Integration.TEMPLATE_TO_OWNER,
         templateParamsToOwner
       );
 
       await emailjs.send(
-        SERVICE_ID,
-        TEMPLATE_TO_RECRUITER,
+        Integration.SERVICE_ID,
+        Integration.TEMPLATE_TO_RECRUITER,
         templateParamsToRecruiter
       );
 
@@ -99,7 +102,7 @@ const FloatingContactForm: React.FC<{}> = () => {
         const body = encodeURIComponent(
           `Hi Deeparishi,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
         );
-        const mailtoLink = `mailto:deeparishia@gmail.com?subject=${subject}&body=${body}`;
+        const mailtoLink = `mailto:${Integration.OWNER_EMAIL}?subject=${subject}&body=${body}`;
         
         window.location.href = mailtoLink;
         

@@ -242,3 +242,19 @@ export const portfolioData: PortfolioData = {
   ],
   resumeUrl: "https://drive.google.com/file/d/1V7dwByYVzZ4pm7hg6gh-G0AwKYJD72mg/view?usp=drivesdk",
 };
+
+export interface SecretData {
+  PUBLIC_KEY: string,
+  OWNER_EMAIL: string;
+  SERVICE_ID: string,
+  TEMPLATE_TO_OWNER: string,
+  TEMPLATE_TO_RECRUITER: string
+}
+
+export const Integration: SecretData = {
+  PUBLIC_KEY: "tUjNxVa35ascMJOOU",
+  OWNER_EMAIL: "deeparishia@gmail.com",
+  SERVICE_ID: "service_j4iwtuk",
+  TEMPLATE_TO_OWNER: "template_u8qquee",
+  TEMPLATE_TO_RECRUITER: "template_5rz3tfh"
+}
