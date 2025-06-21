@@ -16,11 +16,9 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
   const [loadError, setLoadError] = useState(false);
 
   const handleDownload = () => {
-    // Convert Google Drive view link to download link
     let downloadUrl = resumeUrl;
     
     if (resumeUrl.includes('drive.google.com')) {
-      // Extract file ID from Google Drive URL
       const fileIdMatch = resumeUrl.match(/\/d\/([a-zA-Z0-9-_]+)/);
       if (fileIdMatch) {
         const fileId = fileIdMatch[1];
@@ -31,7 +29,6 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
     const link = document.createElement('a');
     link.href = downloadUrl;
     link.download = fileName;
-    // Remove target='_blank' to prevent opening in new tab
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -39,7 +36,6 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
 
   const getPreviewUrl = () => {
     if (resumeUrl.includes('drive.google.com')) {
-      // Extract file ID and create preview URL
       const fileIdMatch = resumeUrl.match(/\/d\/([a-zA-Z0-9-_]+)/);
       if (fileIdMatch) {
         const fileId = fileIdMatch[1];
