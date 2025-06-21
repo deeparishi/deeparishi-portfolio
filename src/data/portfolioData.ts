@@ -88,14 +88,14 @@ export const portfolioData: PortfolioData = {
       location: "Cuddalore, India",
       startDate: "May 2024",
       endDate: "Present",
-      logo: "/src/assets/companies/hepl-cavinkare.png",
+      logo: "/assets/companies/hepl-cavinkare.png",
       projects: [
         {
           id: "1a",
           name: "Trove",
           startDate: "Dec - 2024",
           endDate: "Present",
-          projectLogo: "/src/assets/projects/hepl/trove.png",
+          projectLogo: "/assets/projects/hepl/trove.png",
           description: [
             "Built secure login (SSO, OTP, AES) for DM & group chat; boosted performance by 60% using Redis.",
             "Reduced media size by 50% via FFmpeg microservice with RabbitMQ; ensured cross-platform support.",
@@ -128,14 +128,14 @@ export const portfolioData: PortfolioData = {
       location: "Chennai, India",
       startDate: "Sept 2023",
       endDate: "Apr 2024",
-      logo: "/src/assets/companies/faw-technologies.png",
+      logo: "/assets/companies/faw-technologies.png",
       projects: [
         {
           id: "2a",
           name: "Gloplax - GCC Model",
           startDate: "Dec 2023",
           endDate: "Apr 2024",
-          projectLogo: "/src/assets/projects/faw/Gloplax.png",
+          projectLogo: "/assets/projects/faw/Gloplax.png",
           description: [
             "Designed RESTful APIs to enable dynamic data delivery between microservices based on user input.",
             "Integrated Spring Boot caching to optimize data calculations, boosting performance by 85%.",
@@ -149,7 +149,7 @@ export const portfolioData: PortfolioData = {
           name: "Ford",
           startDate: "Sept 2023",
           endDate: "Dec 2023",
-          projectLogo: "/src/assets/projects/faw/ford.png",
+          projectLogo: "/assets/projects/faw/ford.png",
           description: [
             "Integrated CRON Jobs API with BigQuery for Qlik dashboard visualization, improving calculation accuracy by 25%.",
             "Resolved Angular UI bugs through thorough debugging and validation.",
@@ -240,7 +240,7 @@ export const portfolioData: PortfolioData = {
       logo: "https://www.veltech.edu.in/wp-content/uploads/2022/05/logo-white.png"
     }
   ],
-  resumeUrl: "https://drive.google.com/file/d/1V7dwByYVzZ4pm7hg6gh-G0AwKYJD72mg/view?usp=drivesdk",
+  resumeUrl: "https://drive.google.com/file/d/1d-7HFHGOR0I4jYwiOIz6QL6qSQqcIUdq/view?usp=sharing",
 };
 
 export interface SecretData {
