@@ -8,6 +8,7 @@ export interface ContactInfo {
   linkedin: string;
   leetcode: string;
   profileSummary: string;
+  resumeUrl: string;
 }
 
 export interface Project {
@@ -35,8 +36,8 @@ export interface Skill {
   category: string;
   items: {
     name: string;
-    logo: string; // URL to logo or icon component name
-    color?: string; // Optional brand color
+    logo: string;
+    color?: string;
   }[];
 }
 
@@ -65,7 +66,6 @@ export interface PortfolioData {
   skills: Skill[];
   certifications: Certification[];
   education: Education[];
-  resumeUrl: string;
 }
 
 export const portfolioData: PortfolioData = {
@@ -78,7 +78,8 @@ export const portfolioData: PortfolioData = {
     github: "https://github.com/deeparishi",
     linkedin: "https://linkedin.com/in/deeparishi",
     leetcode: "https://leetcode.com/u/Deeparishi2552/",
-    profileSummary: "Software Engineer with 2+ years of experience building scalable web applications and microservices using Java, Spring Boot, and cloud platforms. A collaborative team player who takes ownership from concept to deployment, delivering high-quality, maintainable code. Passionate about creating MCP Servers, AI-agents, innovative, and future-ready solutions, with strong skills in SQL, NoSQL, and backend architecture."
+    profileSummary: "Software Engineer with 2+ years of experience building scalable web applications and microservices using Java, Spring Boot, and cloud platforms. A collaborative team player who takes ownership from concept to deployment, delivering high-quality, maintainable code. Passionate about creating MCP Servers, AI-agents, innovative, and future-ready solutions, with strong skills in SQL, NoSQL, and backend architecture.",
+    resumeUrl: "/resume/deeparishi_Software_Enginner.pdf",
   },
   experience: [
     {
@@ -240,7 +241,6 @@ export const portfolioData: PortfolioData = {
       logo: "https://www.veltech.edu.in/wp-content/uploads/2022/05/logo-white.png"
     }
   ],
-  resumeUrl: "/resume/deeparishi_Software_Enginner.pdf",
 };
 
 export interface SecretData {

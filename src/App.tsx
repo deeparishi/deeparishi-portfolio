@@ -46,13 +46,13 @@ const App: React.FC = () => {
       {/* Fixed Controls */}
       <div className="fixed top-4 right-4 z-50 flex gap-2 no-print">
         <ThemeToggle /> 
-        <PrintButton resumeUrl={portfolioData.resumeUrl} />
+        <PrintButton resumeUrl={portfolioData.contact.resumeUrl} />
       </div>
 
       {/* Floating Components */}
       <FloatingContactForm  />
       <FloatingResumePreview
-        resumeUrl = {portfolioData.resumeUrl}  
+        resumeUrl = {portfolioData.contact.resumeUrl}  
         fileName="Deeparishi_Resume.pdf" 
       />
 
