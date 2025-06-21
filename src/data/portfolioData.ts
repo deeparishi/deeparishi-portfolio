@@ -240,7 +240,7 @@ export const portfolioData: PortfolioData = {
       logo: "https://www.veltech.edu.in/wp-content/uploads/2022/05/logo-white.png"
     }
   ],
-  resumeUrl: "https://drive.google.com/file/d/1d-7HFHGOR0I4jYwiOIz6QL6qSQqcIUdq/view?usp=sharing",
+  resumeUrl: "/resume/deeparishi_Software_Enginner.pdf",
 };
 
 export interface SecretData {
