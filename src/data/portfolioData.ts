@@ -7,7 +7,7 @@ export interface ContactInfo {
   github: string;
   linkedin: string;
   leetcode: string;
-  profileSummary: string;
+  profileSummary: string[];
   resumeUrl: string;
 }
 
@@ -78,7 +78,11 @@ export const portfolioData: PortfolioData = {
     github: "https://github.com/deeparishi",
     linkedin: "https://www.linkedin.com/in/deeparishi25/",
     leetcode: "https://leetcode.com/u/Deeparishi2552/",
-    profileSummary: "Software Engineer with 2+ years of experience building scalable web applications and microservices using Java, Spring Boot, and cloud platforms. A collaborative team player who takes ownership from concept to deployment, delivering high-quality, maintainable code. Passionate about creating MCP Servers, AI-agents, innovative, and future-ready solutions, with strong skills in SQL, NoSQL, and backend architecture.",
+   profileSummary: [
+  "<strong>Java Backend Developer</strong> with <strong>2+ years</strong> of experience building scalable <strong>microservices</strong> and <strong>RESTful APIs</strong> using <strong>Java</strong>, <strong>Spring Boot</strong>, and <strong>Hibernate</strong>, with hands-on expertise in <strong>RabbitMQ</strong>, <strong>Redis</strong>, <strong>MySQL</strong>, and <strong>MongoDB</strong>.",
+  "Experienced in writing unit tests with <strong>JUnit</strong>, enforcing code quality using <strong>SonarQube</strong>, and deploying secure backend systems with <strong>OAuth2</strong>, <strong>JWT</strong>, and <strong>SSO</strong>. Proficient with <strong>CI/CD pipelines</strong> and cloud services on <strong>AWS</strong> (EC2, S3, RDS) and <strong>Azure Blob Storage</strong>.",
+  "Passionate about building <strong>MCP Servers</strong>, exploring <strong>AI agents</strong>, and delivering <strong>future-ready solutions</strong>. Strong team player in <strong>Agile/Scrum</strong> environments, contributing across the SDLC with clean, maintainable, and high-performance code."
+],
     resumeUrl: "/resume/deeparishi_Software_Enginner.pdf",
   },
   experience: [
@@ -101,10 +105,19 @@ export const portfolioData: PortfolioData = {
             "Built secure login (SSO, OTP, AES) for DM & group chat; boosted performance by 60% using Redis.",
             "Reduced media size by 50% via FFmpeg microservice with RabbitMQ; ensured cross-platform support.",
             "Improved system efficiency by 65% using WebSockets and event-driven architecture for real-time chat & notifications.",
-            "Optimized API communication between services and mobile/web apps with concurrent processing; integrated APIs in Vite + React + TypeScript frontend."
+            "Optimized API communication between services and mobile/web apps with concurrent processing; integrated APIs in Vite + React + TypeScript frontend.",
           ],
-          technologies: ["Java 17", "Spring Boot", "Microservice", "RabbitMQ", "Websockets",
-            "MongoDB", "Redis", "Firebase", "Vite React"]
+          technologies: [
+            "Java 17",
+            "Spring Boot",
+            "Microservice",
+            "RabbitMQ",
+            "Websockets",
+            "MongoDB",
+            "Redis",
+            "Firebase",
+            "Vite React",
+          ],
         },
         {
           id: "1b",
@@ -116,11 +129,20 @@ export const portfolioData: PortfolioData = {
             "Boosted data retrieval by 75% using Spring Cache and Redis; ensured app stability with JMeter and SonarQube.",
             "Integrated real-time financial APIs and third-party loan services, improving loan processing by 30% and enabling application tracking.",
             "Enabled real-time tracking of sales executives’ activities, reducing manual workflows by 90% and improving performance monitoring.",
-            "Built and debugged ReactJS UI components; optimized API communication with concurrent processing in Vite + React + TypeScript frontend."
+            "Built and debugged ReactJS UI components; optimized API communication with concurrent processing in Vite + React + TypeScript frontend.",
           ],
-          technologies: ["Java", "Springboot", "MySQL", "Spring Cache", "Redis", "JMeter", "SonarQube", "ReactJS"]
-        }
-      ]
+          technologies: [
+            "Java",
+            "Springboot",
+            "MySQL",
+            "Spring Cache",
+            "Redis",
+            "JMeter",
+            "SonarQube",
+            "ReactJS",
+          ],
+        },
+      ],
     },
     {
       id: "2",
@@ -141,9 +163,19 @@ export const portfolioData: PortfolioData = {
             "Designed RESTful APIs to enable dynamic data delivery between microservices based on user input.",
             "Integrated Spring Boot caching to optimize data calculations, boosting performance by 85%.",
             "Built custom annotations, DTOs, and boilerplate dependencies, reducing repetitive code by 50% across microservices.",
-            "Handled deployment of 5 microservices on Linux and 3 frontend apps on AWS across multiple environments."
+            "Handled deployment of 5 microservices on Linux and 3 frontend apps on AWS across multiple environments.",
           ],
-          technologies: ["Java 17", "Springboot", "SPring Cache", "MySQL", "RabbitMQ", "WinSCP", "PuTTy", "AWS RDS", "AWS EC2"]
+          technologies: [
+            "Java 17",
+            "Springboot",
+            "SPring Cache",
+            "MySQL",
+            "RabbitMQ",
+            "WinSCP",
+            "PuTTy",
+            "AWS RDS",
+            "AWS EC2",
+          ],
         },
         {
           id: "2b",
@@ -154,13 +186,19 @@ export const portfolioData: PortfolioData = {
           description: [
             "Integrated CRON Jobs API with BigQuery for Qlik dashboard visualization, improving calculation accuracy by 25%.",
             "Resolved Angular UI bugs through thorough debugging and validation.",
-            "Tested and validated data from 7 warehouses across dashboards to ensure data accuracy."
-          ]
-          ,
-          technologies: ["Java", "Springboot", "Big Query", "GCP", "Qlik", "Python"]
-        }
-      ]
-    }
+            "Tested and validated data from 7 warehouses across dashboards to ensure data accuracy.",
+          ],
+          technologies: [
+            "Java",
+            "Springboot",
+            "Big Query",
+            "GCP",
+            "Qlik",
+            "Python",
+          ],
+        },
+      ],
+    },
   ],
   skills: [
     // {
@@ -174,22 +212,48 @@ export const portfolioData: PortfolioData = {
     {
       category: "Backend",
       items: [
-        { name: "Java 17", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
-        { name: "Spring Boot", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
-        { name: "Microservices", logo: "https://www.svgrepo.com/show/373924/microservices.svg" },
-        { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-        { name: "RabbitMQ", logo: "https://www.vectorlogo.zone/logos/rabbitmq/rabbitmq-icon.svg" },
-        { name: "Websockets", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg" },
-      ]
+        {
+          name: "Java 17",
+          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+        },
+        {
+          name: "Spring Boot",
+          logo: "/assets/skills/springboot.png",
+        },
+        {
+          name: "Microservices",
+          logo: "/assets/skills/spring-microservice.png",
+        },
+        {
+          name: "Python",
+          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+        },
+        {
+          name: "RabbitMQ",
+          logo: "https://www.vectorlogo.zone/logos/rabbitmq/rabbitmq-icon.svg",
+        },
+        {
+          name: "Websockets",
+          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg",
+        },
+      ],
     },
     {
       category: "Database",
       items: [
-        { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-        { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-        { name: "Redis", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
-
-      ]
+        {
+          name: "MongoDB",
+          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+        },
+        {
+          name: "MySQL",
+          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+        },
+        {
+          name: "Redis",
+          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+        },
+      ],
     },
     // {
     //   category: "Cloud",
@@ -201,16 +265,37 @@ export const portfolioData: PortfolioData = {
     {
       category: "Tools & Others",
       items: [
-        { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-        { name: "GitHub", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-        { name: "GitLab", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" },
-        { name: "JMeter", logo: "https://jmeter.apache.org/images/jmeter_square.svg" },
-        { name: "SonarQube", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sonarqube/sonarqube-original.svg" },
-        { name: "WinSCP", logo: "https://upload.wikimedia.org/wikipedia/commons/b/bc/WinSCP_Logo.png" },
-        { name: "PuTTY", logo: "https://upload.wikimedia.org/wikipedia/commons/b/b6/PuTTY_icon_128px.png" },
-        { name: "Postman", logo: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" }
-      ]
-    }
+        {
+          name: "Git",
+          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+        },
+        {
+          name: "GitHub",
+          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+        },
+        {
+          name: "GitLab",
+          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg",
+        },
+        {
+          name: "JMeter",
+          logo: "https://jmeter.apache.org/images/jmeter_square.svg",
+        },
+        {
+          name: "SonarQube",
+          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sonarqube/sonarqube-original.svg",
+        },
+        { name: "WinSCP", logo: "/assets/skills/winscp.png" },
+        {
+          name: "PuTTY",
+          logo: "https://upload.wikimedia.org/wikipedia/commons/b/b6/PuTTY_icon_128px.png",
+        },
+        {
+          name: "Postman",
+          logo: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
+        },
+      ],
+    },
   ],
   certifications: [
     {
@@ -219,36 +304,39 @@ export const portfolioData: PortfolioData = {
       issuer: "Udemy",
       year: "2025",
       logo: "https://img.utdstc.com/icon/f61/db0/f61db034c2532bcef67713d4460207372054c4d2b92f271839544a47054b585e:200",
-      certLink: "https://www.udemy.com/certificate/UC-9f923f50-15f4-4792-ac82-8b94af3adcfa/"
+      certLink:
+        "https://www.udemy.com/certificate/UC-9f923f50-15f4-4792-ac82-8b94af3adcfa/",
     },
     {
       id: "2",
       name: "Java for Software Developers",
       issuer: "Internshala",
       year: "2022",
-      logo:"https://cdn-1.webcatalog.io/catalog/internshala/internshala-icon-filled-256.webp?v=1714779141663",
-      certLink: "https://drive.google.com/file/d/1bbZfAWKyJbx0ZJPJS7nfpcRbKOMMTUnD/view?pli=1"
-    }
+      logo: "https://cdn-1.webcatalog.io/catalog/internshala/internshala-icon-filled-256.webp?v=1714779141663",
+      certLink:
+        "https://drive.google.com/file/d/1bbZfAWKyJbx0ZJPJS7nfpcRbKOMMTUnD/view?pli=1",
+    },
   ],
   education: [
     {
       id: "1",
       degree: "Bachelor of Mechanical Engineering",
-      institution: "Vel Tech Multi Tech Dr.Rangarajan Dr.Sakunthala Engineering College",
+      institution:
+        "Vel Tech Multi Tech Dr.Rangarajan Dr.Sakunthala Engineering College",
       location: "Chennai, India",
       year: "2019-2023",
       gpa: "8.17/10",
-      logo: "https://www.veltech.edu.in/wp-content/uploads/2022/05/logo-white.png"
-    }
+      logo: "https://www.veltech.edu.in/wp-content/uploads/2022/05/logo-white.png",
+    },
   ],
 };
 
 export interface SecretData {
-  PUBLIC_KEY: string,
+  PUBLIC_KEY: string;
   OWNER_EMAIL: string;
-  SERVICE_ID: string,
-  TEMPLATE_TO_OWNER: string,
-  TEMPLATE_TO_RECRUITER: string
+  SERVICE_ID: string;
+  TEMPLATE_TO_OWNER: string;
+  TEMPLATE_TO_RECRUITER: string;
 }
 
 export const Integration: SecretData = {
@@ -256,5 +344,5 @@ export const Integration: SecretData = {
   OWNER_EMAIL: "deeparishia@gmail.com",
   SERVICE_ID: "service_j4iwtuk",
   TEMPLATE_TO_OWNER: "template_u8qquee",
-  TEMPLATE_TO_RECRUITER: "template_5rz3tfh"
-}
+  TEMPLATE_TO_RECRUITER: "template_5rz3tfh",
+};
