@@ -1,7 +1,14 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ContactInfo } from '../data/portfolioData';
-import { FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedin, FiCode } from 'react-icons/fi';
+import React from "react";
+import { motion } from "framer-motion";
+import { ContactInfo } from "../data/portfolioData";
+import {
+  FiMail,
+  FiPhone,
+  FiMapPin,
+  FiGithub,
+  FiLinkedin,
+  FiCode,
+} from "react-icons/fi";
 
 interface ContactSectionProps {
   contact: ContactInfo;
@@ -9,19 +16,28 @@ interface ContactSectionProps {
 
 const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
   const contactItems = [
-    { icon: FiMail, label: 'Email', value: contact.email, href: `mailto:${contact.email}` },
-    { icon: FiPhone, label: 'Phone', value: contact.phone, href: `tel:${contact.phone}` },
-    { icon: FiMapPin, label: 'Location', value: contact.location, href: null },
+    {
+      icon: FiMail,
+      label: "Email",
+      value: contact.email,
+      href: `mailto:${contact.email}`,
+    },
+    {
+      icon: FiPhone,
+      label: "Phone",
+      value: contact.phone,
+      href: `tel:${contact.phone}`,
+    },
+    { icon: FiMapPin, label: "Location", value: contact.location, href: null },
   ];
 
   const socialLinks = [
-    { icon: FiGithub, label: 'GitHub', href: contact.github },
-    { icon: FiLinkedin, label: 'LinkedIn', href: contact.linkedin },
-    { icon: FiCode, label: 'LeetCode', href: contact.leetcode },
+    { icon: FiGithub, label: "GitHub", href: contact.github },
+    { icon: FiLinkedin, label: "LinkedIn", href: contact.linkedin },
+    { icon: FiCode, label: "LeetCode", href: contact.leetcode },
   ];
 
   return (
-    
     <motion.section
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -36,15 +52,21 @@ const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
           {contact.title}
         </p>
         <div className="w-16 h-1 bg-primary-500 mx-auto rounded-full mb-3"></div>
-        
+
         {/* Profile Summary */}
         <div className="max-w-3xl mx-auto">
           <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
             Profile Summary
           </h3>
-          <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
-            {contact.profileSummary}
-          </p>
+          <ul className="list-disc ml-5 text-xs sm:text-sm text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
+            {contact.profileSummary.map((point, index) => (
+              <li
+                key={index}
+                className="mb-3"
+                dangerouslySetInnerHTML={{ __html: point }}
+              />
+            ))}
+          </ul>
         </div>
       </div>
 
@@ -67,7 +89,9 @@ const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                   <item.icon className="w-4 h-4 text-primary-600 dark:text-primary-400" />
                 </div>
                 <div className="flex-1">
-                  <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">{item.label}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                    {item.label}
+                  </p>
                   {item.href ? (
                     <a
                       href={item.href}
@@ -76,7 +100,9 @@ const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                       {item.value}
                     </a>
                   ) : (
-                    <span className="text-sm text-gray-900 dark:text-white font-medium">{item.value}</span>
+                    <span className="text-sm text-gray-900 dark:text-white font-medium">
+                      {item.value}
+                    </span>
                   )}
                 </div>
               </motion.div>
