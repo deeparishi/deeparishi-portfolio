@@ -90,7 +90,7 @@ export const portfolioData: PortfolioData = {
       id: "1",
       title: "Junior Software Engineer",
       company: "HEPL - Cavinkare Groups",
-      location: "Cuddalore, India",
+      location: "Chennai",
       startDate: "May 2024",
       endDate: "Present",
       logo: "/assets/companies/hepl-cavinkare.png",
