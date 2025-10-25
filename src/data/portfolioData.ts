@@ -83,7 +83,7 @@ export const portfolioData: PortfolioData = {
   "Experienced in writing unit tests with <strong>JUnit</strong>, enforcing code quality using <strong>SonarQube</strong>, and deploying secure backend systems with <strong>OAuth2</strong>, <strong>JWT</strong>, and <strong>SSO</strong>. Proficient with <strong>CI/CD pipelines</strong> and cloud services on <strong>AWS</strong> (EC2, S3, RDS) and <strong>Azure Blob Storage</strong>.",
   "Passionate about building <strong>MCP Servers</strong>, exploring <strong>AI agents</strong>, and delivering <strong>future-ready solutions</strong>. Strong team player in <strong>Agile/Scrum</strong> environments, contributing across the SDLC with clean, maintainable, and high-performance code."
 ],
-    resumeUrl: "/resume/deeparishi_Software_Enginner.pdf",
+    resumeUrl: "/resume/Deeparishi_Java_Developer_Resume.pdf",
   },
   experience: [
     {
