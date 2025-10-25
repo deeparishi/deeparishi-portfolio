@@ -78,11 +78,11 @@ export const portfolioData: PortfolioData = {
     github: "https://github.com/deeparishi",
     linkedin: "https://www.linkedin.com/in/deeparishi25/",
     leetcode: "https://leetcode.com/u/Deeparishi2552/",
-   profileSummary: [
-  "<strong>Java Backend Developer</strong> with <strong>2+ years</strong> of experience building scalable <strong>microservices</strong> and <strong>RESTful APIs</strong> using <strong>Java</strong>, <strong>Spring Boot</strong>, and <strong>Hibernate</strong>, with hands-on expertise in <strong>RabbitMQ</strong>, <strong>Redis</strong>, <strong>MySQL</strong>, and <strong>MongoDB</strong>.",
-  "Experienced in writing unit tests with <strong>JUnit</strong>, enforcing code quality using <strong>SonarQube</strong>, and deploying secure backend systems with <strong>OAuth2</strong>, <strong>JWT</strong>, and <strong>SSO</strong>. Proficient with <strong>CI/CD pipelines</strong> and cloud services on <strong>AWS</strong> (EC2, S3, RDS) and <strong>Azure Blob Storage</strong>.",
-  "Passionate about building <strong>MCP Servers</strong>, exploring <strong>AI agents</strong>, and delivering <strong>future-ready solutions</strong>. Strong team player in <strong>Agile/Scrum</strong> environments, contributing across the SDLC with clean, maintainable, and high-performance code."
-],
+    profileSummary: [
+      "<strong>Java Backend Engineer</strong> with <strong>1.6 years</strong> of experience building scalable <strong>microservices</strong> and <strong>RESTful APIs</strong> using <strong>Java</strong>, <strong>Spring Boot</strong>, and <strong>Hibernate</strong>, with hands-on expertise in <strong>RabbitMQ</strong>, <strong>Redis</strong>, <strong>MySQL</strong>, and <strong>MongoDB</strong>.",
+      "Experienced in writing unit tests with <strong>JUnit</strong>, enforcing code quality using <strong>SonarQube</strong>, and deploying secure backend systems with <strong>OAuth2</strong>, <strong>JWT</strong>, and <strong>SSO</strong>. Proficient with <strong>CI/CD pipelines</strong> and cloud services on <strong>AWS</strong> (EC2, S3, RDS) and <strong>Azure Blob Storage</strong>.",
+      "Passionate about building <strong>MCP Servers</strong>, exploring <strong>AI agents</strong>, and delivering <strong>future-ready solutions</strong>. Strong team player in <strong>Agile/Scrum</strong> environments, contributing across the SDLC with clean, maintainable, and high-performance code.",
+    ],
     resumeUrl: "/resume/Deeparishi_Java_Developer_Resume.pdf",
   },
   experience: [
@@ -102,20 +102,22 @@ export const portfolioData: PortfolioData = {
           endDate: "Present",
           projectLogo: "/assets/projects/hepl/trove.png",
           description: [
-            "Built secure login (SSO, OTP, AES) for DM & group chat; boosted performance by 60% using Redis.",
-            "Reduced media size by 50% via FFmpeg microservice with RabbitMQ; ensured cross-platform support.",
-            "Improved system efficiency by 65% using WebSockets and event-driven architecture for real-time chat & notifications.",
+            "Collaborated with a cross-functional team to build RESTful APIs and microservices, optimizing JSON structures and SQL queries, improving performance by up to 65%.",
+            "Developed a Centralized Authentication Gateway using Spring Security, SSO, OTP, OAuth2, and JWT toensure secure access across services",
+            "Created an FFmpeg–Kafka-based service to compress files into multiple resolutions, reducing latency by 50% and storing them on AWS S3",
             "Optimized API communication between services and mobile/web apps with concurrent processing; integrated APIs in Vite + React + TypeScript frontend.",
           ],
           technologies: [
             "Java 17",
             "Spring Boot",
-            "Microservice",
+            "Microservices",
+            "Apache Kafka",
             "RabbitMQ",
-            "Websockets",
             "MongoDB",
             "Redis",
             "Firebase",
+            "Grafana",
+            "WebSockets",
             "Vite React",
           ],
         },
@@ -126,9 +128,10 @@ export const portfolioData: PortfolioData = {
           endDate: "Dec 2024",
           projectLogo: "",
           description: [
-            "Boosted data retrieval by 75% using Spring Cache and Redis; ensured app stability with JMeter and SonarQube.",
-            "Integrated real-time financial APIs and third-party loan services, improving loan processing by 30% and enabling application tracking.",
-            "Enabled real-time tracking of sales executives’ activities, reducing manual workflows by 90% and improving performance monitoring.",
+            "Contributed to a FinTech platform connecting applicants and lenders, cutting manual effort by 80%",
+            "Optimized data retrieval performance by 75% using Spring Cache and Redis, reducing average API latency",
+            "Integrated 25+ lender partners through fault-tolerant APIs, improving reliability and reducing loan processing time by 30%",
+            "Performed SonarQube testing, improving code quality by up to 32% and ensured system reliability through load testing and rate limiting",
             "Built and debugged ReactJS UI components; optimized API communication with concurrent processing in Vite + React + TypeScript frontend.",
           ],
           technologies: [
@@ -144,77 +147,69 @@ export const portfolioData: PortfolioData = {
         },
       ],
     },
-    {
-      id: "2",
-      title: "Junior Software Engineer",
-      company: "FAW Technologies",
-      location: "Chennai, India",
-      startDate: "Sept 2023",
-      endDate: "Apr 2024",
-      logo: "/assets/companies/faw-technologies.png",
-      projects: [
-        {
-          id: "2a",
-          name: "Gloplax - GCC Model",
-          startDate: "Dec 2023",
-          endDate: "Apr 2024",
-          projectLogo: "/assets/projects/faw/Gloplax.png",
-          description: [
-            "Designed RESTful APIs to enable dynamic data delivery between microservices based on user input.",
-            "Integrated Spring Boot caching to optimize data calculations, boosting performance by 85%.",
-            "Built custom annotations, DTOs, and boilerplate dependencies, reducing repetitive code by 50% across microservices.",
-            "Handled deployment of 5 microservices on Linux and 3 frontend apps on AWS across multiple environments.",
-          ],
-          technologies: [
-            "Java 17",
-            "Springboot",
-            "SPring Cache",
-            "MySQL",
-            "RabbitMQ",
-            "WinSCP",
-            "PuTTy",
-            "AWS RDS",
-            "AWS EC2",
-          ],
-        },
-        {
-          id: "2b",
-          name: "Ford",
-          startDate: "Sept 2023",
-          endDate: "Dec 2023",
-          projectLogo: "/assets/projects/faw/ford.png",
-          description: [
-            "Integrated CRON Jobs API with BigQuery for Qlik dashboard visualization, improving calculation accuracy by 25%.",
-            "Resolved Angular UI bugs through thorough debugging and validation.",
-            "Tested and validated data from 7 warehouses across dashboards to ensure data accuracy.",
-          ],
-          technologies: [
-            "Java",
-            "Springboot",
-            "Big Query",
-            "GCP",
-            "Qlik",
-            "Python",
-          ],
-        },
-      ],
-    },
+    // {
+    //   id: "2",
+    //   title: "Junior Software Engineer",
+    //   company: "FAW Technologies",
+    //   location: "Chennai, India",
+    //   startDate: "Sept 2023",
+    //   endDate: "Apr 2024",
+    //   logo: "/assets/companies/faw-technologies.png",
+    //   projects: [
+    //     {
+    //       id: "2a",
+    //       name: "Gloplax - GCC Model",
+    //       startDate: "Dec 2023",
+    //       endDate: "Apr 2024",
+    //       projectLogo: "/assets/projects/faw/Gloplax.png",
+    //       description: [
+    //         "Designed RESTful APIs to enable dynamic data delivery between microservices based on user input.",
+    //         "Integrated Spring Boot caching to optimize data calculations, boosting performance by 85%.",
+    //         "Built custom annotations, DTOs, and boilerplate dependencies, reducing repetitive code by 50% across microservices.",
+    //         "Handled deployment of 5 microservices on Linux and 3 frontend apps on AWS across multiple environments.",
+    //       ],
+    //       technologies: [
+    //         "Java 17",
+    //         "Springboot",
+    //         "SPring Cache",
+    //         "MySQL",
+    //         "RabbitMQ",
+    //         "WinSCP",
+    //         "PuTTy",
+    //         "AWS RDS",
+    //         "AWS EC2",
+    //       ],
+    //     },
+    //     {
+    //       id: "2b",
+    //       name: "Ford",
+    //       startDate: "Sept 2023",
+    //       endDate: "Dec 2023",
+    //       projectLogo: "/assets/projects/faw/ford.png",
+    //       description: [
+    //         "Integrated CRON Jobs API with BigQuery for Qlik dashboard visualization, improving calculation accuracy by 25%.",
+    //         "Resolved Angular UI bugs through thorough debugging and validation.",
+    //         "Tested and validated data from 7 warehouses across dashboards to ensure data accuracy.",
+    //       ],
+    //       technologies: [
+    //         "Java",
+    //         "Springboot",
+    //         "Big Query",
+    //         "GCP",
+    //         "Qlik",
+    //         "Python",
+    //       ],
+    //     },
+    //   ],
+    // },
   ],
   skills: [
-    // {
-    //   category: "Frontend",
-    //   items: [
-    //     { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-    //     { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-    //     { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-    //    ]
-    // },
     {
       category: "Backend",
       items: [
         {
           name: "Java 17",
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+          logo: "assets/skills/Java.png",
         },
         {
           name: "Spring Boot",
@@ -225,74 +220,96 @@ export const portfolioData: PortfolioData = {
           logo: "/assets/skills/spring-microservice.png",
         },
         {
-          name: "Python",
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+          name: "Hibernate",
+          logo: "/assets/skills/Hibernate.png",
+        },
+        {
+          name: "WebSockets",
+          logo: "assets/skills/Socket.io.png",
+        },
+      ],
+    },
+    {
+      category: "Messaging & Event Streaming",
+      items: [
+        {
+          name: "Apache Kafka",
+          logo: "/assets/skills/Apache Kafka.png",
         },
         {
           name: "RabbitMQ",
-          logo: "https://www.vectorlogo.zone/logos/rabbitmq/rabbitmq-icon.svg",
-        },
-        {
-          name: "Websockets",
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg",
+          logo: "assets/skills/RabbitMQ.png",
         },
       ],
     },
     {
-      category: "Database",
+      category: "Database & Caching",
       items: [
         {
-          name: "MongoDB",
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+          name: "MySQL",
+          logo: "assets/skills/MySQL.png",
         },
         {
-          name: "MySQL",
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+          name: "MongoDB",
+          logo: "assets/skills/MongoDB.png",
         },
         {
           name: "Redis",
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+          logo: "assets/skills/Redis.png",
         },
       ],
     },
-    // {
-    //   category: "Cloud",
-    //   items: [
-    //     { name: "AWS S3", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/amazonaws.svg" },
-    //     { name: "Azure", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
-    //   ]
-    // },
     {
-      category: "Tools & Others",
+      category: "DevOps & Cloud",
+      items: [
+        {
+          name: "Docker",
+          logo: "/assets/skills/Docker.png",
+        },
+        {
+          name: "Maven",
+          logo: "/assets/skills/Apache Maven.png",
+        },
+        {
+          name: "AWS",
+          logo: "assets/skills/AWS.png",
+        },
+      ],
+    },
+    {
+      category: "Tools & Monitoring",
       items: [
         {
           name: "Git",
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+          logo: "assets/skills/Git.png",
         },
         {
           name: "GitHub",
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+          logo: "assets/skills/GitHub.png",
         },
         {
           name: "GitLab",
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg",
-        },
-        {
-          name: "JMeter",
-          logo: "https://jmeter.apache.org/images/jmeter_square.svg",
+          logo: "assets/skills/GitLab.png",
         },
         {
           name: "SonarQube",
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sonarqube/sonarqube-original.svg",
+          logo: "assets/skills/SonarQube.png",
         },
-        { name: "WinSCP", logo: "/assets/skills/winscp.png" },
+        {
+          name: "JMeter",
+          logo: "https://jmeter.apache.org/images/apple-touch-icon.png",
+        },
+        {
+          name: "Grafana",
+          logo: "assets/skills/Grafana.png",
+        },
         {
           name: "PuTTY",
-          logo: "https://upload.wikimedia.org/wikipedia/commons/b/b6/PuTTY_icon_128px.png",
+          logo: "assets/skills/PuTTY.png",
         },
         {
-          name: "Postman",
-          logo: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
+          name: "WinSCP",
+          logo: "/assets/skills/winscp.png",
         },
       ],
     },
@@ -307,14 +324,23 @@ export const portfolioData: PortfolioData = {
       certLink:
         "https://www.udemy.com/certificate/UC-9f923f50-15f4-4792-ac82-8b94af3adcfa/",
     },
-    {
+       {
       id: "2",
-      name: "Java for Software Developers",
-      issuer: "Internshala",
-      year: "2022",
-      logo: "https://cdn-1.webcatalog.io/catalog/internshala/internshala-icon-filled-256.webp?v=1714779141663",
+      name: "Software Engineer",
+      issuer: "Hackerrank",
+      year: "2024",
+      logo: "assets/Certificate/Hackerrank.png",
       certLink:
-        "https://drive.google.com/file/d/1bbZfAWKyJbx0ZJPJS7nfpcRbKOMMTUnD/view?pli=1",
+        "https://www.hackerrank.com/certificates/03fa8c69773d?hr_r",
+    },
+    {
+      id: "3",
+      name: "Java with SQL",
+      issuer: "Besant technologies",
+      year: "2023",
+      logo: "assets/Certificate/Besant technologies.png",
+      certLink:
+        "https://drive.google.com/file/d/1Nwjnj-GX17ypwCPkMzFG3p2MlDfByv5X/view",
     },
   ],
   education: [
@@ -326,7 +352,7 @@ export const portfolioData: PortfolioData = {
       location: "Chennai, India",
       year: "2019-2023",
       gpa: "8.17/10",
-      logo: "https://www.veltech.edu.in/wp-content/uploads/2022/05/logo-white.png",
+      logo: "assets/skills/Veltech.png",
     },
   ],
 };
