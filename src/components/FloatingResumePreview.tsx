@@ -146,10 +146,10 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
             </div>
 
             {/* Footer with Download Button */}
-            <div className="bg-gray-50 dark:bg-gray-700 px-4 py-2 border-t border-gray-200 dark:border-gray-600 flex-shrink-0">
+         <div className="bg-gray-50 dark:bg-gray-700 px-4 py-2 border-t border-gray-200 dark:border-gray-600 flex-shrink-0 flex justify-end">
               <button
                 onClick={handleDownload}
-                className="w-full bg-primary-500 hover:bg-primary-600 text-white py-2 px-4 rounded-lg font-medium text-sm transition-colors flex items-center justify-center space-x-2"
+              className="bg-primary-500 hover:bg-primary-600 text-white py-2 px-3 rounded-lg font-medium text-sm transition-colors flex items-center space-x-1"
               >
                 <FiDownload className="w-4 h-4" />
                 <span>Download Resume</span>
