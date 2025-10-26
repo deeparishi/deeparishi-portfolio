@@ -102,7 +102,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                   {item.href ? (
                     <a
                       href={item.href}
-                      onClick={() => trackEvent('contact_info_clicked', { type: item.label })}
+                      onClick={() => trackEvent(`${item.label}_clicked`, { type: item.label })}
                       className="text-sm text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium"
                     >
                       {item.value}
@@ -130,7 +130,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackEvent('social_link_clicked', { platform: link.label })}
+                onClick={() => trackEvent(`${link.label}_clicked`, { platform: link.label })}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
