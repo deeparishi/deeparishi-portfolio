@@ -5,9 +5,6 @@ import {
   FiMail,
   FiPhone,
   FiMapPin,
-  FiGithub,
-  FiLinkedin,
-  FiCode,
 } from "react-icons/fi";
 
 interface ContactSectionProps {
@@ -38,11 +35,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
     { icon: FiMapPin, label: "Location", value: contact.location, href: null },
   ];
 
-  const socialLinks = [
-    { icon: FiGithub, label: "GitHub", href: contact.github },
-    { icon: FiLinkedin, label: "LinkedIn", href: contact.linkedin },
-    { icon: FiCode, label: "LeetCode", href: contact.leetcode },
-  ];
+
 
   return (
     <motion.section
@@ -124,7 +117,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
             Connect With Me
           </h3>
           <div className="flex space-x-4">
-            {socialLinks.map((link, index) => (
+            {contact.socialLinks.map((link, index) => (
               <motion.a
                 key={index}
                 href={link.href}
@@ -139,7 +132,11 @@ const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                 className="flex items-center justify-center w-10 h-10 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-600 hover:border-primary-400 dark:hover:border-primary-500 group"
                 title={link.label}
               >
-                <link.icon className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors" />
+                <img
+                  src={link.logo}
+                  alt={link.label}
+                  className="w-6 h-6 object-contain group-hover:brightness-125 transition-all dark:brightness-75 dark:group-hover:brightness-100"
+                />
               </motion.a>
             ))}
           </div>
