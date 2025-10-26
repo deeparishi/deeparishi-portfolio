@@ -1,3 +1,9 @@
+export interface SocialLink {
+  label: string;
+  href: string;
+  logo: string;
+}
+
 export interface ContactInfo {
   name: string;
   title: string;
@@ -9,6 +15,7 @@ export interface ContactInfo {
   leetcode: string;
   profileSummary: string[];
   resumeUrl: string;
+  socialLinks: SocialLink[];
 }
 
 export interface Project {
@@ -84,6 +91,11 @@ export const portfolioData: PortfolioData = {
       "Passionate about building <strong>MCP Servers</strong>, exploring <strong>AI agents</strong>, and delivering <strong>future-ready solutions</strong>. Strong team player in <strong>Agile/Scrum</strong> environments, contributing across the SDLC with clean, maintainable, and high-performance code.",
     ],
     resumeUrl: "/resume/Deeparishi_Java_Developer_Resume.pdf",
+    socialLinks: [
+      { label: "GitHub", href: "https://github.com/deeparishi", logo: "/assets/Contact/Github.png" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/deeparishi25/", logo: "/assets/Contact/LinkedIn.png" },
+      { label: "LeetCode", href: "https://leetcode.com/u/Deeparishi2552/", logo: "/assets/Contact/leetcode.png" },
+    ],
   },
   experience: [
     {
