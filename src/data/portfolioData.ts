@@ -352,7 +352,7 @@ export const portfolioData: PortfolioData = {
       location: "Chennai, India",
       year: "2019-2023",
       gpa: "8.17/10",
-      logo: "assets/skills/Veltech.png",
+      logo: "assets/Education/Veltech.png",
     },
   ],
 };
