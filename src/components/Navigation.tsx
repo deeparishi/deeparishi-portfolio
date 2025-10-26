@@ -6,7 +6,13 @@ interface NavigationProps {
 }
 
 const Navigation: React.FC<NavigationProps> = ({ className = '' }) => {
-  
+
+  const trackEvent = (eventName: string, parameters?: Record<string, any>) => {
+    if (window.gtag) {
+      window.gtag('event', eventName, parameters);
+    }
+  };
+
   const [activeSection, setActiveSection] = useState('contact');
 
   const sections = [
@@ -52,6 +58,7 @@ const Navigation: React.FC<NavigationProps> = ({ className = '' }) => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
+    trackEvent('navigation_clicked', { section: sectionId });
     const element = document.getElementById(sectionId);
     if (element) {
       // Get the header height dynamically
