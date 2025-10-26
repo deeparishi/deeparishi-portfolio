@@ -11,7 +11,17 @@ const PrintButton: React.FC<PrintButtonProps> = ({
   resumeUrl, 
   fileName = "Deeparishi_Resume.pdf" 
 }) => {
+  // Google Analytics event tracking
+  const trackEvent = (eventName: string, parameters?: Record<string, any>) => {
+    if (window.gtag) {
+      window.gtag('event', eventName, parameters);
+    }
+  };
+
   const handleDownload = () => {
+    trackEvent('resume_downloaded', {
+      file_name: fileName
+    });
     // Convert Google Drive view link to download link (same logic as FloatingResumePreview)
     let downloadUrl = resumeUrl;
     

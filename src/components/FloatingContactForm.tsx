@@ -13,6 +13,12 @@ import { Integration } from "../data/portfolioData";
 
 const FloatingContactForm: React.FC<{}> = () => {
 
+  const trackEvent = (eventName: string, parameters?: Record<string, any>) => {
+    if (window.gtag) {
+      window.gtag('event', eventName, parameters);
+    }
+  };
+
   const [isExpanded, setIsExpanded] = useState(false);
   
   const [formData, setFormData] = useState({
@@ -43,6 +49,9 @@ const FloatingContactForm: React.FC<{}> = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    trackEvent('contact_form_submitted', {
+      subject: formData.title || 'No subject'
+    });
     setIsSubmitting(true);
     setSubmitStatus("idle");
     setErrorMessage("");
@@ -141,7 +150,10 @@ const FloatingContactForm: React.FC<{}> = () => {
                 <h3 className="text-white font-semibold text-sm">Contact Me</h3>
               </div>
               <button
-                onClick={() => setIsExpanded(false)}
+                onClick={() => {
+                  trackEvent('contact_form_closed');
+                  setIsExpanded(false);
+                }}
                 className="text-white hover:bg-white/20 rounded-full p-1 transition-colors"
               >
                 <FiX className="w-4 h-4" />
@@ -259,7 +271,10 @@ const FloatingContactForm: React.FC<{}> = () => {
             exit={{ opacity: 0, scale: 0 }}
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setIsExpanded(true)}
+            onClick={() => {
+              trackEvent('contact_form_opened');
+              setIsExpanded(true);
+            }}
             className="bg-primary-500 hover:bg-primary-600 text-white w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 group relative"
           >
             <FiMessageCircle className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" />
