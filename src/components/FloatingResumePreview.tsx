@@ -193,9 +193,6 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
 
             {/* Footer */}
             <div className="bg-gray-50 dark:bg-gray-700 px-4 py-2.5 border-t border-gray-200 dark:border-gray-600 flex-shrink-0 flex items-center justify-between">
-              <p className="text-xs text-gray-500 dark:text-gray-400">
-                Links open in new tab
-              </p>
               <button
                 onClick={handleDownload}
                 className="bg-primary-500 hover:bg-primary-600 text-white py-2 px-4 rounded-lg font-medium text-sm transition-colors flex items-center space-x-2 shadow-sm"

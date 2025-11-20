@@ -86,15 +86,27 @@ export const portfolioData: PortfolioData = {
     linkedin: "https://www.linkedin.com/in/deeparishi25/",
     leetcode: "https://leetcode.com/u/Deeparishi2552/",
     profileSummary: [
-      "<strong>Java Backend Engineer</strong> with <strong>1.6 years</strong> of experience building scalable <strong>microservices</strong> and <strong>RESTful APIs</strong> using <strong>Java</strong>, <strong>Spring Boot</strong>, and <strong>Hibernate</strong>, with hands-on expertise in <strong>RabbitMQ</strong>, <strong>Redis</strong>, <strong>MySQL</strong>, and <strong>MongoDB</strong>.",
+      "<strong>Java Backend Engineer</strong> with <strong>1.7 years</strong> of experience building scalable <strong>microservices</strong> and <strong>RESTful APIs</strong> using <strong>Java</strong>, <strong>Spring Boot</strong>, and <strong>Hibernate</strong>, with hands-on expertise in <strong>RabbitMQ</strong>, <strong>Redis</strong>, <strong>MySQL</strong>, and <strong>MongoDB</strong>.",
       "Experienced in writing unit tests with <strong>JUnit</strong>, enforcing code quality using <strong>SonarQube</strong>, and deploying secure backend systems with <strong>OAuth2</strong>, <strong>JWT</strong>, and <strong>SSO</strong>. Proficient with <strong>CI/CD pipelines</strong> and cloud services on <strong>AWS</strong> (EC2, S3, RDS) and <strong>Azure Blob Storage</strong>.",
       "Passionate about building <strong>MCP Servers</strong>, exploring <strong>AI agents</strong>, and delivering <strong>future-ready solutions</strong>. Strong team player in <strong>Agile/Scrum</strong> environments, contributing across the SDLC with clean, maintainable, and high-performance code.",
     ],
     resumeUrl: "/assets/resume/Deeparishi_java_developer_resume.pdf",
     socialLinks: [
-      { label: "GitHub", href: "https://github.com/deeparishi", logo: "/assets/Contact/Github.png" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/deeparishi25/", logo: "/assets/Contact/LinkedIn.png" },
-      { label: "LeetCode", href: "https://leetcode.com/u/Deeparishi2552/", logo: "/assets/Contact/leetcode.png" },
+      {
+        label: "GitHub",
+        href: "https://github.com/deeparishi",
+        logo: "/assets/Contact/Github.png",
+      },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/deeparishi25/",
+        logo: "/assets/Contact/LinkedIn.png",
+      },
+      {
+        label: "LeetCode",
+        href: "https://leetcode.com/u/Deeparishi2552/",
+        logo: "/assets/Contact/leetcode.png",
+      },
     ],
   },
   experience: [
@@ -107,7 +119,6 @@ export const portfolioData: PortfolioData = {
       endDate: "Present",
       logo: "/assets/companies/hepl-cavinkare.png",
       projects: [
-       
         {
           id: "1a",
           name: "Finserve - Financial Service Platform",
@@ -133,7 +144,7 @@ export const portfolioData: PortfolioData = {
             "ReactJS",
           ],
         },
-         {
+        {
           id: "1b",
           name: "Trove",
           startDate: "Dec - 2024",
@@ -159,7 +170,7 @@ export const portfolioData: PortfolioData = {
             "WebSockets",
             "Vite React",
           ],
-        }
+        },
       ],
     },
     // {
@@ -339,14 +350,13 @@ export const portfolioData: PortfolioData = {
       certLink:
         "https://www.udemy.com/certificate/UC-9f923f50-15f4-4792-ac82-8b94af3adcfa/",
     },
-       {
+    {
       id: "2",
       name: "Software Engineer",
       issuer: "Hackerrank",
       year: "2024",
       logo: "assets/Certificate/Hackerrank.png",
-      certLink:
-        "https://www.hackerrank.com/certificates/03fa8c69773d?hr_r",
+      certLink: "https://www.hackerrank.com/certificates/03fa8c69773d?hr_r",
     },
     {
       id: "3",
