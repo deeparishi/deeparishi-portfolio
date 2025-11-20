@@ -90,7 +90,7 @@ export const portfolioData: PortfolioData = {
       "Experienced in writing unit tests with <strong>JUnit</strong>, enforcing code quality using <strong>SonarQube</strong>, and deploying secure backend systems with <strong>OAuth2</strong>, <strong>JWT</strong>, and <strong>SSO</strong>. Proficient with <strong>CI/CD pipelines</strong> and cloud services on <strong>AWS</strong> (EC2, S3, RDS) and <strong>Azure Blob Storage</strong>.",
       "Passionate about building <strong>MCP Servers</strong>, exploring <strong>AI agents</strong>, and delivering <strong>future-ready solutions</strong>. Strong team player in <strong>Agile/Scrum</strong> environments, contributing across the SDLC with clean, maintainable, and high-performance code.",
     ],
-    resumeUrl: "/resume/Deeparishi_Java_Developer_Resume.pdf",
+    resumeUrl: "/assets/resume/Deeparishi_java_developer_resume.pdf",
     socialLinks: [
       { label: "GitHub", href: "https://github.com/deeparishi", logo: "/assets/Contact/Github.png" },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/deeparishi25/", logo: "/assets/Contact/LinkedIn.png" },
@@ -107,16 +107,43 @@ export const portfolioData: PortfolioData = {
       endDate: "Present",
       logo: "/assets/companies/hepl-cavinkare.png",
       projects: [
+       
         {
           id: "1a",
+          name: "Finserve - Financial Service Platform",
+          startDate: "May 2024",
+          endDate: "Dec 2024",
+          projectLogo: "",
+          description: [
+            "Optimized a legacy API using in-memory aggregation and multi-threaded batch processing, reducing execution time from 45 min to under <5 sec while preserving complete data integrity",
+            "Contributed to a FinTech platform connecting applicants and lenders, cutting manual effort by 80%",
+            "ntegrated 20+ lender partner APIs with fault-tolerant design with retries and fallback logic, improving API success rate by 15–18%",
+            "Strengthened code quality using SonarQube, JUnit, and effective debugging techniques to identify and fix bugs, reducing production problems",
+            "Implemented CIBIL API integration and secured sensitive data with AES-256 encryption, reducing compliance-related risks by 30%",
+            "Built and debugged ReactJS UI components; optimized API communication with concurrent processing in Vite + React + TypeScript frontend.",
+          ],
+          technologies: [
+            "Java",
+            "Springboot",
+            "MySQL",
+            "Spring Cache",
+            "Redis",
+            "JMeter",
+            "SonarQube",
+            "ReactJS",
+          ],
+        },
+         {
+          id: "1b",
           name: "Trove",
           startDate: "Dec - 2024",
           endDate: "Present",
           projectLogo: "/assets/projects/hepl/trove.png",
           description: [
             "Collaborated with a cross-functional team to build RESTful APIs and microservices, optimizing JSON structures and SQL queries, improving performance by up to 65%.",
-            "Developed a Centralized Authentication Gateway using Spring Security, SSO, OTP, OAuth2, and JWT toensure secure access across services",
-            "Created an FFmpeg–Kafka-based service to compress files into multiple resolutions, reducing latency by 50% and storing them on AWS S3",
+            "Implemented authentication and authorization flows using Spring Security, SSO, OTP, OAuth2, JWT, improving login reliability by 30%.",
+            "Contributed to FFmpeg–Kafka service to generate multi-resolution media outputs, reducing buffering latency by 50% and integrating storage with AWS S3",
+            "Added real-time messaging using WebSockets and Redis, cutting unnecessary DB queries by 25% and improving concurrent user responsiveness.",
             "Optimized API communication between services and mobile/web apps with concurrent processing; integrated APIs in Vite + React + TypeScript frontend.",
           ],
           technologies: [
@@ -132,31 +159,7 @@ export const portfolioData: PortfolioData = {
             "WebSockets",
             "Vite React",
           ],
-        },
-        {
-          id: "1b",
-          name: "Finserve - Financial Service Platform",
-          startDate: "May 2024",
-          endDate: "Dec 2024",
-          projectLogo: "",
-          description: [
-            "Contributed to a FinTech platform connecting applicants and lenders, cutting manual effort by 80%",
-            "Optimized data retrieval performance by 75% using Spring Cache and Redis, reducing average API latency",
-            "Integrated 25+ lender partners through fault-tolerant APIs, improving reliability and reducing loan processing time by 30%",
-            "Performed SonarQube testing, improving code quality by up to 32% and ensured system reliability through load testing and rate limiting",
-            "Built and debugged ReactJS UI components; optimized API communication with concurrent processing in Vite + React + TypeScript frontend.",
-          ],
-          technologies: [
-            "Java",
-            "Springboot",
-            "MySQL",
-            "Spring Cache",
-            "Redis",
-            "JMeter",
-            "SonarQube",
-            "ReactJS",
-          ],
-        },
+        }
       ],
     },
     // {
