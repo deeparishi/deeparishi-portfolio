@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiFileText, FiX, FiDownload, FiMaximize2, FiMinimize2 } from 'react-icons/fi';
+import { FiFileText, FiX, FiDownload, FiMaximize2, FiMinimize2, FiZoomIn, FiZoomOut, FiRefreshCw } from 'react-icons/fi';
 
 interface FloatingResumePreviewProps {
   resumeUrl: string;
@@ -14,6 +14,7 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
   const [isExpanded, setIsExpanded] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [loadError, setLoadError] = useState(false);
+  const [zoom, setZoom] = useState(125);
 
   const handleDownload = () => {
     let downloadUrl = resumeUrl;
@@ -29,6 +30,7 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
     const link = document.createElement('a');
     link.href = downloadUrl;
     link.download = fileName;
+    link.target = '_blank';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -42,7 +44,20 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
         return `https://drive.google.com/file/d/${fileId}/preview`;
       }
     }
-    return `${resumeUrl}#toolbar=0&navpanes=0&scrollbar=0`;
+    // Add zoom parameter and enable toolbar for better PDF viewing
+    return `${resumeUrl}#view=FitH&zoom=${zoom}&toolbar=1`;
+  };
+
+  const handleZoomIn = () => {
+    setZoom(prev => Math.min(prev + 25, 200));
+  };
+
+  const handleZoomOut = () => {
+    setZoom(prev => Math.max(prev - 25, 50));
+  };
+
+  const handleResetZoom = () => {
+    setZoom(125);
   };
 
   const toggleFullscreen = () => {
@@ -61,19 +76,50 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
             className={`bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col ${
               isFullscreen 
                 ? 'fixed inset-4 w-auto h-auto' 
-                : 'w-80 sm:w-96 h-72 sm:h-80'
+                : 'w-[90vw] sm:w-[600px] h-[80vh] sm:h-[700px]'
             }`}
           >
             {/* Header */}
-            <div className="bg-primary-500 dark:bg-primary-600 px-4 py-3 flex items-center justify-between flex-shrink-0">
+            <div className="bg-primary-500 dark:bg-primary-600 px-3 py-2.5 flex items-center justify-between flex-shrink-0">
               <div className="flex items-center space-x-2">
-                <FiFileText className="w-5 h-5 text-white" />
+                <FiFileText className="w-4 h-4 text-white" />
                 <h3 className="text-white font-semibold text-sm">Resume Preview</h3>
+                <span className="text-white/80 text-xs font-mono bg-white/10 px-2 py-0.5 rounded">
+                  {zoom}%
+                </span>
               </div>
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-0.5">
+                {/* Zoom Controls */}
+                <button
+                  onClick={handleZoomOut}
+                  className="text-white hover:bg-white/20 rounded-lg p-1.5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  title="Zoom Out (Ctrl + -)"
+                  disabled={zoom <= 50}
+                >
+                  <FiZoomOut className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={handleResetZoom}
+                  className="text-white hover:bg-white/20 rounded-lg p-1.5 transition-colors"
+                  title="Reset Zoom (100%)"
+                >
+                  <FiRefreshCw className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  onClick={handleZoomIn}
+                  className="text-white hover:bg-white/20 rounded-lg p-1.5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  title="Zoom In (Ctrl + +)"
+                  disabled={zoom >= 200}
+                >
+                  <FiZoomIn className="w-4 h-4" />
+                </button>
+                
+                <div className="w-px h-5 bg-white/30 mx-1.5"></div>
+                
+                {/* Other Controls */}
                 <button
                   onClick={toggleFullscreen}
-                  className="text-white hover:bg-white/20 rounded-full p-1 transition-colors"
+                  className="text-white hover:bg-white/20 rounded-lg p-1.5 transition-colors"
                   title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
                 >
                   {isFullscreen ? (
@@ -84,7 +130,7 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
                 </button>
                 <button
                   onClick={handleDownload}
-                  className="text-white hover:bg-white/20 rounded-full p-1 transition-colors"
+                  className="text-white hover:bg-white/20 rounded-lg p-1.5 transition-colors"
                   title="Download Resume"
                 >
                   <FiDownload className="w-4 h-4" />
@@ -93,8 +139,9 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
                   onClick={() => {
                     setIsExpanded(false);
                     setIsFullscreen(false);
+                    setZoom(125);
                   }}
-                  className="text-white hover:bg-white/20 rounded-full p-1 transition-colors"
+                  className="text-white hover:bg-white/20 rounded-lg p-1.5 transition-colors"
                   title="Minimize"
                 >
                   <FiX className="w-4 h-4" />
@@ -103,41 +150,40 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
             </div>
 
             {/* PDF Preview */}
-            <div className="relative flex-1 bg-gray-50 dark:bg-gray-900">
-              <div className="absolute inset-0">
-                <iframe
-                  src={getPreviewUrl()}
-                  className="w-full h-full border-0"
-                  title="Resume Preview"
-                  loading="lazy"
-                  onLoad={(e) => {
-                    const loadingOverlay = e.currentTarget.parentElement?.nextElementSibling;
-                    if (loadingOverlay) {
-                      (loadingOverlay as HTMLElement).style.display = 'none';
-                    }
-                  }}
-
-                  onError={() => setLoadError(true)}
-                />
-              </div>
+            <div className="relative flex-1 bg-gray-100 dark:bg-gray-900 overflow-hidden">
+              <iframe
+                src={getPreviewUrl()}
+                className="w-full h-full border-0"
+                title="Resume Preview"
+                loading="lazy"
+                onLoad={(e) => {
+                  const loadingOverlay = e.currentTarget.parentElement?.querySelector('.loading-overlay');
+                  if (loadingOverlay) {
+                    (loadingOverlay as HTMLElement).style.display = 'none';
+                  }
+                }}
+                onError={() => setLoadError(true)}
+              />
               
               {/* Loading/Error overlay */}
-              <div className="absolute inset-0 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+              <div className="loading-overlay absolute inset-0 bg-gray-100 dark:bg-gray-800 flex items-center justify-center pointer-events-none">
                 <div className="text-center">
                   {loadError ? (
                     <>
-                      <FiFileText className="w-12 h-12 text-gray-400 mx-auto mb-2" />
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">PDF Preview Unavailable</p>
+                      <FiFileText className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 font-medium">
+                        PDF Preview Unavailable
+                      </p>
                       <button
                         onClick={handleDownload}
-                        className="text-primary-500 hover:text-primary-600 text-sm underline"
+                        className="text-primary-500 hover:text-primary-600 text-sm underline pointer-events-auto"
                       >
                         Download Resume Instead
                       </button>
                     </>
                   ) : (
                     <>
-                      <div className="w-8 h-8 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
+                      <div className="w-10 h-10 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
                       <p className="text-sm text-gray-600 dark:text-gray-400">Loading Resume...</p>
                     </>
                   )}
@@ -145,14 +191,17 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
               </div>
             </div>
 
-            {/* Footer with Download Button */}
-         <div className="bg-gray-50 dark:bg-gray-700 px-4 py-2 border-t border-gray-200 dark:border-gray-600 flex-shrink-0 flex justify-end">
+            {/* Footer */}
+            <div className="bg-gray-50 dark:bg-gray-700 px-4 py-2.5 border-t border-gray-200 dark:border-gray-600 flex-shrink-0 flex items-center justify-between">
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                Links open in new tab
+              </p>
               <button
                 onClick={handleDownload}
-              className="bg-primary-500 hover:bg-primary-600 text-white py-2 px-3 rounded-lg font-medium text-sm transition-colors flex items-center space-x-1"
+                className="bg-primary-500 hover:bg-primary-600 text-white py-2 px-4 rounded-lg font-medium text-sm transition-colors flex items-center space-x-2 shadow-sm"
               >
                 <FiDownload className="w-4 h-4" />
-                <span>Download Resume</span>
+                <span>Download</span>
               </button>
             </div>
           </motion.div>
@@ -169,9 +218,9 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
             <FiFileText className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" />
             
             {/* Tooltip */}
-            <div className="absolute bottom-full right-0 mb-2 px-2 py-1 bg-gray-900 dark:bg-gray-700 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            <div className="absolute bottom-full right-0 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
               View Resume
-              <div className="absolute top-full right-2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900 dark:border-t-gray-700"></div>
+              <div className="absolute top-full right-3 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900 dark:border-t-gray-700"></div>
             </div>
           </motion.button>
         )}
