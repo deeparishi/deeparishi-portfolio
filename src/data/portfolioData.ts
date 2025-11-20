@@ -92,9 +92,21 @@ export const portfolioData: PortfolioData = {
     ],
     resumeUrl: "/assets/resume/Deeparishi_java_developer_resume.pdf",
     socialLinks: [
-      { label: "GitHub", href: "https://github.com/deeparishi", logo: "/assets/Contact/Github.png" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/deeparishi25/", logo: "/assets/Contact/LinkedIn.png" },
-      { label: "LeetCode", href: "https://leetcode.com/u/Deeparishi2552/", logo: "/assets/Contact/leetcode.png" },
+      {
+        label: "GitHub",
+        href: "https://github.com/deeparishi",
+        logo: "/assets/Contact/Github.png",
+      },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/deeparishi25/",
+        logo: "/assets/Contact/LinkedIn.png",
+      },
+      {
+        label: "LeetCode",
+        href: "https://leetcode.com/u/Deeparishi2552/",
+        logo: "/assets/Contact/leetcode.png",
+      },
     ],
   },
   experience: [
@@ -107,7 +119,6 @@ export const portfolioData: PortfolioData = {
       endDate: "Present",
       logo: "/assets/companies/hepl-cavinkare.png",
       projects: [
-       
         {
           id: "1a",
           name: "Finserve - Financial Service Platform",
@@ -133,7 +144,7 @@ export const portfolioData: PortfolioData = {
             "ReactJS",
           ],
         },
-         {
+        {
           id: "1b",
           name: "Trove",
           startDate: "Dec - 2024",
@@ -159,7 +170,7 @@ export const portfolioData: PortfolioData = {
             "WebSockets",
             "Vite React",
           ],
-        }
+        },
       ],
     },
     // {
@@ -339,14 +350,13 @@ export const portfolioData: PortfolioData = {
       certLink:
         "https://www.udemy.com/certificate/UC-9f923f50-15f4-4792-ac82-8b94af3adcfa/",
     },
-       {
+    {
       id: "2",
       name: "Software Engineer",
       issuer: "Hackerrank",
       year: "2024",
       logo: "assets/Certificate/Hackerrank.png",
-      certLink:
-        "https://www.hackerrank.com/certificates/03fa8c69773d?hr_r",
+      certLink: "https://www.hackerrank.com/certificates/03fa8c69773d?hr_r",
     },
     {
       id: "3",
