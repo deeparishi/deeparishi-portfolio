@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiFileText, FiX, FiDownload, FiMaximize2, FiMinimize2, FiZoomIn, FiZoomOut, FiRefreshCw } from 'react-icons/fi';
+import { FiFileText, FiX, FiDownload, FiMaximize2, FiMinimize2} from 'react-icons/fi';
 
 interface FloatingResumePreviewProps {
   resumeUrl: string;
@@ -11,10 +11,11 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
   resumeUrl, 
   fileName = "resume.pdf" 
 }) => {
+  
   const [isExpanded, setIsExpanded] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [loadError, setLoadError] = useState(false);
-  const [zoom, setZoom] = useState(125);
+  const [zoom, setZoom] = useState(100);
 
   const handleDownload = () => {
     let downloadUrl = resumeUrl;
@@ -44,21 +45,9 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
         return `https://drive.google.com/file/d/${fileId}/preview`;
       }
     }
-    // Add zoom parameter and enable toolbar for better PDF viewing
     return `${resumeUrl}#view=FitH&zoom=${zoom}&toolbar=1`;
   };
 
-  const handleZoomIn = () => {
-    setZoom(prev => Math.min(prev + 25, 200));
-  };
-
-  const handleZoomOut = () => {
-    setZoom(prev => Math.max(prev - 25, 50));
-  };
-
-  const handleResetZoom = () => {
-    setZoom(125);
-  };
 
   const toggleFullscreen = () => {
     setIsFullscreen(!isFullscreen);
@@ -76,7 +65,7 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
             className={`bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col ${
               isFullscreen 
                 ? 'fixed inset-4 w-auto h-auto' 
-                : 'w-[90vw] sm:w-[600px] h-[80vh] sm:h-[700px]'
+                : 'w-[90vw] sm:w-[500px] h-[80vh] sm:h-[500px]'
             }`}
           >
             {/* Header */}
@@ -84,36 +73,8 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
               <div className="flex items-center space-x-2">
                 <FiFileText className="w-4 h-4 text-white" />
                 <h3 className="text-white font-semibold text-sm">Resume Preview</h3>
-                <span className="text-white/80 text-xs font-mono bg-white/10 px-2 py-0.5 rounded">
-                  {zoom}%
-                </span>
               </div>
               <div className="flex items-center space-x-0.5">
-                {/* Zoom Controls */}
-                <button
-                  onClick={handleZoomOut}
-                  className="text-white hover:bg-white/20 rounded-lg p-1.5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  title="Zoom Out (Ctrl + -)"
-                  disabled={zoom <= 50}
-                >
-                  <FiZoomOut className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={handleResetZoom}
-                  className="text-white hover:bg-white/20 rounded-lg p-1.5 transition-colors"
-                  title="Reset Zoom (100%)"
-                >
-                  <FiRefreshCw className="w-3.5 h-3.5" />
-                </button>
-                <button
-                  onClick={handleZoomIn}
-                  className="text-white hover:bg-white/20 rounded-lg p-1.5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  title="Zoom In (Ctrl + +)"
-                  disabled={zoom >= 200}
-                >
-                  <FiZoomIn className="w-4 h-4" />
-                </button>
-                
                 <div className="w-px h-5 bg-white/30 mx-1.5"></div>
                 
                 {/* Other Controls */}
@@ -128,18 +89,18 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
                     <FiMaximize2 className="w-4 h-4" />
                   )}
                 </button>
-                <button
+                {/* <button
                   onClick={handleDownload}
                   className="text-white hover:bg-white/20 rounded-lg p-1.5 transition-colors"
                   title="Download Resume"
                 >
                   <FiDownload className="w-4 h-4" />
-                </button>
+                </button> */}
                 <button
                   onClick={() => {
                     setIsExpanded(false);
                     setIsFullscreen(false);
-                    setZoom(125);
+                    setZoom(100);
                   }}
                   className="text-white hover:bg-white/20 rounded-lg p-1.5 transition-colors"
                   title="Minimize"
@@ -178,7 +139,7 @@ const FloatingResumePreview: React.FC<FloatingResumePreviewProps> = ({
                         onClick={handleDownload}
                         className="text-primary-500 hover:text-primary-600 text-sm underline pointer-events-auto"
                       >
-                        Download Resume Instead
+                        Download Resume
                       </button>
                     </>
                   ) : (
