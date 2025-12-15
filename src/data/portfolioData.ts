@@ -126,9 +126,10 @@ export const portfolioData: PortfolioData = {
           endDate: "Dec 2024",
           projectLogo: "",
           description: [
+            "Optimized a legacy API using in-memory aggregation and multi-threaded batch processing, reducing execution time from 45 min to under 5 sec while preserving complete data integrity."
             "Optimized a legacy API using in-memory aggregation and multi-threaded batch processing, reducing execution time from 45 min to under <5 sec while preserving complete data integrity",
             "Contributed to a FinTech platform connecting applicants and lenders, cutting manual effort by 80%",
-            "ntegrated 20+ lender partner APIs with fault-tolerant design with retries and fallback logic, improving API success rate by 15–18%",
+            "Integrated 20+ lender partner APIs with fault-tolerant design with retries and fallback logic, improving API success rate by 15–18%",
             "Strengthened code quality using SonarQube, JUnit, and effective debugging techniques to identify and fix bugs, reducing production problems",
             "Implemented CIBIL API integration and secured sensitive data with AES-256 encryption, reducing compliance-related risks by 30%",
             "Built and debugged ReactJS UI components; optimized API communication with concurrent processing in Vite + React + TypeScript frontend.",
@@ -397,4 +398,5 @@ export const Integration: SecretData = {
   TEMPLATE_TO_OWNER: "template_u8qquee",
   TEMPLATE_TO_RECRUITER: "template_5rz3tfh",
 };
+
 
