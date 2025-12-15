@@ -86,7 +86,7 @@ export const portfolioData: PortfolioData = {
     linkedin: "https://www.linkedin.com/in/deeparishi25/",
     leetcode: "https://leetcode.com/u/Deeparishi2552/",
     profileSummary: [
-      "<strong>Java Backend Engineer</strong> with <strong>1.7 years</strong> of experience building scalable <strong>microservices</strong> and <strong>RESTful APIs</strong> using <strong>Java</strong>, <strong>Spring Boot</strong>, and <strong>Hibernate</strong>, with hands-on expertise in <strong>RabbitMQ</strong>, <strong>Redis</strong>, <strong>MySQL</strong>, and <strong>MongoDB</strong>.",
+      "<strong>Java Backend Engineer</strong> with <strong>1.8 years</strong> of experience building scalable <strong>microservices</strong> and <strong>RESTful APIs</strong> using <strong>Java</strong>, <strong>Spring Boot</strong>, and <strong>Hibernate</strong>, with hands-on expertise in <strong>RabbitMQ</strong>, <strong>Redis</strong>, <strong>MySQL</strong>, and <strong>MongoDB</strong>.",
       "Experienced in writing unit tests with <strong>JUnit</strong>, enforcing code quality using <strong>SonarQube</strong>, and deploying secure backend systems with <strong>OAuth2</strong>, <strong>JWT</strong>, and <strong>SSO</strong>. Proficient with <strong>CI/CD pipelines</strong> and cloud services on <strong>AWS</strong> (EC2, S3, RDS) and <strong>Azure Blob Storage</strong>.",
       "Passionate about building <strong>MCP Servers</strong>, exploring <strong>AI agents</strong>, and delivering <strong>future-ready solutions</strong>. Strong team player in <strong>Agile/Scrum</strong> environments, contributing across the SDLC with clean, maintainable, and high-performance code.",
     ],
@@ -128,7 +128,7 @@ export const portfolioData: PortfolioData = {
           description: [
             "Optimized a legacy API using in-memory aggregation and multi-threaded batch processing, reducing execution time from 45 min to under <5 sec while preserving complete data integrity",
             "Contributed to a FinTech platform connecting applicants and lenders, cutting manual effort by 80%",
-            "ntegrated 20+ lender partner APIs with fault-tolerant design with retries and fallback logic, improving API success rate by 15–18%",
+            "Integrated 20+ lender partner APIs with fault-tolerant design with retries and fallback logic, improving API success rate by 15–18%",
             "Strengthened code quality using SonarQube, JUnit, and effective debugging techniques to identify and fix bugs, reducing production problems",
             "Implemented CIBIL API integration and secured sensitive data with AES-256 encryption, reducing compliance-related risks by 30%",
             "Built and debugged ReactJS UI components; optimized API communication with concurrent processing in Vite + React + TypeScript frontend.",
