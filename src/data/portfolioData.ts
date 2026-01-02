@@ -86,7 +86,7 @@ export const portfolioData: PortfolioData = {
     linkedin: "https://www.linkedin.com/in/deeparishi25/",
     leetcode: "https://leetcode.com/u/Deeparishi2552/",
     profileSummary: [
-      "<strong>Java Backend Engineer</strong> with <strong>1.8 years</strong> of experience building scalable <strong>microservices</strong> and <strong>RESTful APIs</strong> using <strong>Java</strong>, <strong>Spring Boot</strong>, and <strong>Hibernate</strong>, with hands-on expertise in <strong>RabbitMQ</strong>, <strong>Redis</strong>, <strong>MySQL</strong>, and <strong>MongoDB</strong>.",
+      "<strong>Java Backend Engineer</strong> with <strong>1.9 years</strong> of experience building scalable <strong>microservices</strong> and <strong>RESTful APIs</strong> using <strong>Java</strong>, <strong>Spring Boot</strong>, and <strong>Hibernate</strong>, with hands-on expertise in <strong>RabbitMQ</strong>, <strong>Redis</strong>, <strong>MySQL</strong>, and <strong>MongoDB</strong>.",
       "Experienced in writing unit tests with <strong>JUnit</strong>, enforcing code quality using <strong>SonarQube</strong>, and deploying secure backend systems with <strong>OAuth2</strong>, <strong>JWT</strong>, and <strong>SSO</strong>. Proficient with <strong>CI/CD pipelines</strong> and cloud services on <strong>AWS</strong> (EC2, S3, RDS) and <strong>Azure Blob Storage</strong>.",
       "Passionate about building <strong>MCP Servers</strong>, exploring <strong>AI agents</strong>, and delivering <strong>future-ready solutions</strong>. Strong team player in <strong>Agile/Scrum</strong> environments, contributing across the SDLC with clean, maintainable, and high-performance code.",
     ],
@@ -397,3 +397,4 @@ export const Integration: SecretData = {
   TEMPLATE_TO_OWNER: "template_u8qquee",
   TEMPLATE_TO_RECRUITER: "template_5rz3tfh",
 };
+
